@@ -1249,7 +1249,7 @@ function initEventListeners() {
     switchView(appState.view === 'customer' ? 'dashboard' : 'customer');
   });
 
-  // Admin Navbar & Floating Buttons (No password required for client demo)
+  // Admin Navbar & Floating Buttons
   document.getElementById('nav-btn-admin')?.addEventListener('click', (e) => {
     // If inside index.html and customer wants clean page redirect or view toggle
     if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname === '') {

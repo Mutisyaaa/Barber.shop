@@ -241,25 +241,35 @@ body.theme-dark {
 }
 
 .btn-admin-nav {
-  background: rgba(229, 176, 69, 0.08);
-  color: var(--gold-primary);
-  border: 1px solid var(--border-gold);
+  background: linear-gradient(135deg, #1e2430 0%, #11141a 100%);
+  color: #f5efe0;
+  border: 1.5px solid var(--gold-primary);
   border-radius: var(--radius-sm);
-  padding: 0.6rem 1.15rem;
-  font-size: 0.875rem;
-  font-weight: 600;
+  padding: 0.65rem 1.35rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  justify-content: center;
+  gap: 0.5rem;
   cursor: pointer;
-  transition: var(--transition);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .btn-admin-nav:hover {
-  background: rgba(229, 176, 69, 0.2);
-  border-color: var(--gold-primary);
+  background: linear-gradient(135deg, #e5b045 0%, #c48f2a 100%);
+  color: #0c0e12;
+  border-color: #f3c462;
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px var(--gold-glow);
+  box-shadow: 0 6px 22px rgba(229, 176, 69, 0.45);
+}
+
+.btn-admin-nav:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .badge-demo-pill {
