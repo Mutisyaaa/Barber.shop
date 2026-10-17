@@ -81,10 +81,10 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <button
               onClick={() => handleNav("admin")}
-              className="h-11 px-5 rounded-xl bg-gradient-to-r from-[#1c222d] to-[#12151b] hover:from-[#d4af37] hover:to-[#9c7a1f] border-2 border-[#d4af37] text-xs font-bold uppercase tracking-wider text-[#f5efe0] hover:text-[#0b0b0b] flex items-center gap-2 shadow-lg shadow-black/50 hover:shadow-[#d4af37]/30 transition-all duration-200 active:scale-95 cursor-pointer group"
+              className="h-11 px-5 rounded-xl bg-gradient-to-r from-[#f3d77a] via-[#d4af37] to-[#9c7a1f] text-[#0b0b0b] font-bold text-xs tracking-wider uppercase shadow-md shadow-[#d4af37]/20 hover:brightness-110 active:scale-95 transition flex items-center gap-2 cursor-pointer"
               title="Open Admin Portal"
             >
-              <ShieldCheck size={16} className="text-[#d4af37] group-hover:text-[#0b0b0b] transition-colors" />
+              <ShieldCheck size={16} className="text-[#0b0b0b]" />
               <span>Admin Portal</span>
             </button>
             <button
@@ -99,9 +99,9 @@ export default function Navbar() {
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={() => handleNav("admin")}
-              className="h-9 px-3.5 rounded-lg bg-gradient-to-r from-[#1c222d] to-[#12151b] border-2 border-[#d4af37] text-xs font-bold text-[#d4af37] flex items-center gap-1.5 shadow-sm active:scale-95 transition cursor-pointer"
+              className="h-9 px-3.5 rounded-lg bg-gradient-to-r from-[#f3d77a] via-[#d4af37] to-[#9c7a1f] text-[#0b0b0b] font-bold text-xs flex items-center gap-1.5 shadow-sm active:scale-95 transition cursor-pointer"
             >
-              <ShieldCheck size={14} className="text-[#d4af37]" />
+              <ShieldCheck size={14} className="text-[#0b0b0b]" />
               <span>Admin</span>
             </button>
             <button

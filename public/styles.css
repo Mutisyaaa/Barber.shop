@@ -240,36 +240,45 @@ body.theme-dark {
   gap: 0.85rem;
 }
 
-.btn-admin-nav {
-  background: linear-gradient(135deg, #1e2430 0%, #11141a 100%);
-  color: #f5efe0;
-  border: 1.5px solid var(--gold-primary);
-  border-radius: var(--radius-sm);
-  padding: 0.65rem 1.35rem;
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+/* Reset links so a:visited never turns purple */
+a, a:visited {
   text-decoration: none;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-.btn-admin-nav:hover {
-  background: linear-gradient(135deg, #e5b045 0%, #c48f2a 100%);
-  color: #0c0e12;
-  border-color: #f3c462;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 22px rgba(229, 176, 69, 0.45);
+.btn-admin-nav,
+a.btn-admin-nav,
+a.btn-admin-nav:link,
+a.btn-admin-nav:visited {
+  background: linear-gradient(135deg, #e5b045 0%, #c48f2a 100%) !important;
+  color: #0c0e12 !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 0.65rem 1.35rem !important;
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  cursor: pointer !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  text-decoration: none !important;
+  border: 1px solid transparent !important;
+  box-shadow: 0 4px 16px var(--gold-glow) !important;
 }
 
-.btn-admin-nav:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+.btn-admin-nav:hover,
+a.btn-admin-nav:hover {
+  background: linear-gradient(135deg, #f3c462 0%, #d4af37 100%) !important;
+  color: #000000 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 22px rgba(229, 176, 69, 0.55) !important;
+}
+
+.btn-admin-nav:active,
+a.btn-admin-nav:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
 }
 
 .badge-demo-pill {
