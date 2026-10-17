@@ -953,10 +953,10 @@
 
   <!-- Floating Demo Quick Switcher (Convenient for Client Sales Presentation) -->
   <aside class="floating-demo-switcher" aria-label="Demo view switcher">
-    <button type="button" class="demo-switch-tab active" id="float-tab-customer" aria-label="View Public Booking Page">
+    <button type="button" class="demo-switch-tab active" id="float-tab-customer" onclick="if(window.appSwitchView){window.appSwitchView('customer')}else{const cv=document.getElementById('customer-view'),dv=document.getElementById('dashboard-view');if(cv&&dv){dv.classList.add('hidden');cv.classList.remove('hidden');this.classList.add('active');document.getElementById('float-tab-admin')?.classList.remove('active')}else{window.location.href='index.html'}}" aria-label="View Public Booking Page">
       <span>🌐 Customer View</span>
     </button>
-    <button type="button" class="demo-switch-tab" id="float-tab-admin" aria-label="View Owner Admin Portal">
+    <button type="button" class="demo-switch-tab" id="float-tab-admin" onclick="if(window.appSwitchView){window.appSwitchView('dashboard')}else{const cv=document.getElementById('customer-view'),dv=document.getElementById('dashboard-view');if(cv&&dv){cv.classList.add('hidden');dv.classList.remove('hidden');this.classList.add('active');document.getElementById('float-tab-customer')?.classList.remove('active');window.scrollTo({top:0,behavior:'smooth'})}else{window.location.href='admin.html'}}" aria-label="View Owner Admin Portal">
       <span>👑 Admin Portal</span>
     </button>
   </aside>

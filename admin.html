@@ -583,8 +583,15 @@
     </form>
   </dialog>
 
-  <!-- Notification Toast Container -->
-  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+  <!-- Floating Demo Quick Switcher -->
+  <aside class="floating-demo-switcher" aria-label="Demo view switcher">
+    <button type="button" class="demo-switch-tab" id="float-tab-customer" onclick="window.location.href='index.html'" aria-label="View Public Booking Page">
+      <span>🌐 Customer View</span>
+    </button>
+    <button type="button" class="demo-switch-tab active" id="float-tab-admin" aria-label="View Owner Admin Portal">
+      <span>👑 Admin Portal</span>
+    </button>
+  </aside>
 
   <script src="public/app.js"></script>
 </body>

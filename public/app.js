@@ -847,12 +847,18 @@ function updateDashboardKPIs() {
   const revenue = appts.filter(a => a.status !== 'cancelled' && a.status !== 'no_show').reduce((sum, a) => sum + (a.service_price || 800), 0);
   const walkinCount = appState.walkins.filter(w => w.status === 'waiting').length;
 
-  document.getElementById('stat-total-appts').textContent = total;
-  document.getElementById('stat-appts-breakdown').textContent = `${arrived} in chair • ${completed} completed`;
-  document.getElementById('stat-deposits-collected').textContent = formatCurrency(deposits);
-  document.getElementById('stat-projected-rev').textContent = formatCurrency(revenue);
-  document.getElementById('stat-walkin-count').textContent = walkinCount;
-  document.getElementById('stat-walkin-wait').textContent = `Avg wait: ${walkinCount * 20} min`;
+  const elTotal = document.getElementById('stat-total-appts');
+  if (elTotal) elTotal.textContent = total;
+  const elBreakdown = document.getElementById('stat-appts-breakdown');
+  if (elBreakdown) elBreakdown.textContent = `${arrived} in chair • ${completed} completed`;
+  const elDeposits = document.getElementById('stat-deposits-collected');
+  if (elDeposits) elDeposits.textContent = formatCurrency(deposits);
+  const elRev = document.getElementById('stat-projected-rev');
+  if (elRev) elRev.textContent = formatCurrency(revenue);
+  const elWalkin = document.getElementById('stat-walkin-count');
+  if (elWalkin) elWalkin.textContent = walkinCount;
+  const elWait = document.getElementById('stat-walkin-wait');
+  if (elWait) elWait.textContent = `Avg wait: ${walkinCount * 20} min`;
 }
 
 function renderTimelineStream() {
@@ -1228,22 +1234,33 @@ function initEventListeners() {
     const floatAdmin = document.getElementById('float-tab-admin');
 
     if (targetView === 'dashboard') {
-      custView.classList.add('hidden');
-      dashView.classList.remove('hidden');
-      if (btnToggleView) btnToggleView.textContent = '👤 Back to Customer Site';
-      if (floatCust) floatCust.classList.remove('active');
-      if (floatAdmin) floatAdmin.classList.add('active');
-      refreshDashboard();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (dashView && custView) {
+        custView.classList.add('hidden');
+        dashView.classList.remove('hidden');
+        if (btnToggleView) btnToggleView.textContent = '👤 Back to Customer Site';
+        if (floatCust) floatCust.classList.remove('active');
+        if (floatAdmin) floatAdmin.classList.add('active');
+        refreshDashboard();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        window.location.href = 'admin.html';
+      }
     } else {
-      dashView.classList.add('hidden');
-      custView.classList.remove('hidden');
-      if (btnToggleView) btnToggleView.textContent = '👔 Staff / Owner Dashboard';
-      if (floatAdmin) floatAdmin.classList.remove('active');
-      if (floatCust) floatCust.classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (dashView && custView) {
+        dashView.classList.add('hidden');
+        custView.classList.remove('hidden');
+        if (btnToggleView) btnToggleView.textContent = '👔 Staff / Owner Dashboard';
+        if (floatAdmin) floatAdmin.classList.remove('active');
+        if (floatCust) floatCust.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        window.location.href = 'index.html';
+      }
     }
   };
+
+  // Expose globally so inline onclick always functions instantly
+  window.appSwitchView = switchView;
 
   btnToggleView?.addEventListener('click', () => {
     switchView(appState.view === 'customer' ? 'dashboard' : 'customer');
@@ -1251,32 +1268,33 @@ function initEventListeners() {
 
   // Admin Navbar & Floating Buttons
   document.getElementById('nav-btn-admin')?.addEventListener('click', (e) => {
-    // If inside index.html and customer wants clean page redirect or view toggle
-    if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname === '') {
-      // Direct navigation to dedicated admin page
-      window.location.href = 'admin.html';
+    if (document.getElementById('dashboard-view')) {
+      e.preventDefault();
+      switchView('dashboard');
     } else {
-      window.location.href = '/admin';
+      window.location.href = 'admin.html';
     }
   });
   document.getElementById('nav-link-admin')?.addEventListener('click', (e) => {
     e.preventDefault();
-    window.location.href = 'admin.html';
-  });
-
-  // Floating Demo Quick Switcher
-  document.getElementById('float-tab-customer')?.addEventListener('click', () => {
-    if (document.getElementById('customer-view')) {
-      switchView('customer');
+    if (document.getElementById('dashboard-view')) {
+      switchView('dashboard');
     } else {
-      window.location.href = 'index.html';
+      window.location.href = 'admin.html';
     }
   });
-  document.getElementById('float-tab-admin')?.addEventListener('click', () => {
-    window.location.href = 'admin.html';
+
+  // Floating Demo Quick Switcher (Below the screen)
+  document.getElementById('float-tab-customer')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    switchView('customer');
+  });
+  document.getElementById('float-tab-admin')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    switchView('dashboard');
   });
   document.getElementById('btn-demo-back-home')?.addEventListener('click', () => {
-    window.location.href = 'index.html';
+    switchView('customer');
   });
 
   // Quick Seed Test Appointment (for live owner sales demonstration)
