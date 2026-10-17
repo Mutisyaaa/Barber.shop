@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin & Owner Control Center | Sam Kitiki Kutz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-dark">
+
+  <!-- Main Standalone Admin Shell -->
+  <div class="dashboard-shell" style="min-height: 100vh;">
+    
+    <!-- Dashboard Top Header -->
+    <header class="dash-header">
+      <div class="dash-header-left">
+        <a href="index.html" class="btn-back-to-client">
+          ← Back to Customer Website
+        </a>
+        <div class="dash-title-group">
+          <h1 class="dash-title">Owner & Barber Control Center</h1>
+          <span class="dash-date-badge" id="dash-current-date">Today: Oct 17, 2026</span>
+        </div>
+      </div>
+
+      <div class="dash-header-right">
+        <div class="barber-filter-selector">
+          <label for="dash-barber-filter" class="sr-only">Filter by Barber:</label>
+          <select id="dash-barber-filter" class="form-select">
+            <option value="all">👥 All Barbers (Shop View)</option>
+            <!-- Barbers populated dynamically -->
+          </select>
+        </div>
+        <button type="button" class="btn btn-secondary" id="btn-open-timeoff-modal">
+          ⏳ Block Time / Off Day
+        </button>
+        <button type="button" class="btn btn-primary" id="btn-open-walkin-modal">
+          ➕ Add Walk-In Client
+        </button>
+      </div>
+    </header>
+
+    <!-- Demo Notice Banner -->
+    <aside class="demo-info-banner" aria-label="Demo mode status banner">
+      <div class="demo-info-left">
+        <span class="demo-chip">⚡ CLIENT DEMO MODE</span>
+        <span>Open Owner/Barber Access (No password required). Experience live schedule timelines, walk-ins, and services.</span>
+      </div>
+      <div class="demo-info-actions">
+        <button type="button" class="btn btn-sm btn-secondary" id="btn-seed-test-appt">
+          ➕ Add Quick Test Booking
+        </button>
+        <a href="index.html" class="btn btn-sm btn-secondary">
+          👤 View Public Website
+        </a>
+      </div>
+    </aside>
+
+    <!-- Dashboard KPI Summary Cards -->
+    <div class="dash-stats-grid">
+      <div class="kpi-card">
+        <div class="kpi-icon kpi-blue">📅</div>
+        <div class="kpi-data">
+          <span class="kpi-label">Today's Appointments</span>
+          <strong class="kpi-val" id="stat-total-appts">0</strong>
+          <span class="kpi-sub" id="stat-appts-breakdown">0 arrived • 0 done</span>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-icon kpi-gold">💰</div>
+        <div class="kpi-data">
+          <span class="kpi-label">M-Pesa Deposits Collected</span>
+          <strong class="kpi-val" id="stat-deposits-collected">KES 0</strong>
+          <span class="kpi-sub">Secured via Daraja STK</span>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-icon kpi-green">📈</div>
+        <div class="kpi-data">
+          <span class="kpi-label">Projected Daily Revenue</span>
+          <strong class="kpi-val" id="stat-projected-rev">KES 0</strong>
+          <span class="kpi-sub">Completed & booked chairs</span>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-icon kpi-purple">🚶‍♂️</div>
+        <div class="kpi-data">
+          <span class="kpi-label">Walk-In Waiting Queue</span>
+          <strong class="kpi-val" id="stat-walkin-count">0</strong>
+          <span class="kpi-sub" id="stat-walkin-wait">Avg wait: 0 min</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dashboard Navigation Tabs -->
+    <div class="dash-tabs" role="tablist">
+      <button type="button" class="dash-tab active" data-tab="timeline" role="tab" aria-selected="true">
+        🗓️ Today's Schedule & Timeline
+      </button>
+      <button type="button" class="dash-tab" data-tab="walkins" role="tab" aria-selected="false">
+        🚶‍♂️ Walk-In Queue
+      </button>
+      <button type="button" class="dash-tab" data-tab="clients" role="tab" aria-selected="false">
+        👥 Client Directory & History
+      </button>
+      <button type="button" class="dash-tab" data-tab="services-mgr" role="tab" aria-selected="false">
+        ✂️ Services & Pricing Manager
+      </button>
+      <button type="button" class="dash-tab" data-tab="barbers-mgr" role="tab" aria-selected="false">
+        💈 Barbers & Hours Manager
+      </button>
+      <button type="button" class="dash-tab" data-tab="earnings" role="tab" aria-selected="false">
+        💰 Earnings & Reports
+      </button>
+      <button type="button" class="dash-tab" data-tab="settings" role="tab" aria-selected="false">
+        ⚙️ Shop Settings & M-Pesa
+      </button>
+    </div>
+
+    <!-- Tab 1: Today's Timeline -->
+    <div id="tab-timeline" class="dash-tab-pane active">
+      <div class="timeline-container">
+        <div class="timeline-toolbar">
+          <div class="timeline-legend">
+            <span class="legend-chip chip-confirmed">● Confirmed</span>
+            <span class="legend-chip chip-arrived">● In Chair / Arrived</span>
+            <span class="legend-chip chip-completed">● Completed</span>
+            <span class="legend-chip chip-noshow">● No-Show</span>
+          </div>
+          <div class="timeline-actions">
+            <button type="button" class="btn btn-sm btn-secondary" id="btn-refresh-dashboard">🔄 Refresh</button>
+          </div>
+        </div>
+
+        <div class="schedule-stream" id="schedule-timeline-list">
+          <!-- Timeline items rendered dynamically by app.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2: Walk-In Queue -->
+    <div id="tab-walkins" class="dash-tab-pane">
+      <div class="panel-card">
+        <div class="panel-header">
+          <div>
+            <h3>Active Walk-In Queue</h3>
+            <p>Clients waiting in the lounge without prior online reservation.</p>
+          </div>
+          <button type="button" class="btn btn-primary btn-sm" id="btn-add-walkin-shortcut">
+            ➕ Add Walk-In
+          </button>
+        </div>
+
+        <div class="walkins-table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Client</th>
+                <th>Service</th>
+                <th>Assigned Barber</th>
+                <th>Queue Wait</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="walkins-table-body">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 3: Clients Directory -->
+    <div id="tab-clients" class="dash-tab-pane">
+      <div class="panel-card">
+        <div class="panel-header">
+          <div>
+            <h3>Client Records & Retention</h3>
+            <p>Track visits, customer loyalty, and flag repeat no-shows.</p>
+          </div>
+          <input type="search" id="client-search-input" class="search-input" placeholder="Search by name or phone...">
+        </div>
+
+        <div class="clients-table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Client Name</th>
+                <th>Phone Number</th>
+                <th>Total Visits</th>
+                <th>Last Visit</th>
+                <th>No-Show Strikes</th>
+                <th>Quick Action</th>
+              </tr>
+            </thead>
+            <tbody id="clients-table-body">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 4: Services Manager -->
+    <div id="tab-services-mgr" class="dash-tab-pane">
+      <div class="panel-card">
+        <div class="panel-header">
+          <div>
+            <h3>Manage Services Menu</h3>
+            <p>Update haircut and grooming prices, durations, and active menu status.</p>
+          </div>
+          <button type="button" class="btn btn-primary btn-sm" id="btn-add-service-modal">
+            ➕ Add New Service
+          </button>
+        </div>
+
+        <div class="services-mgmt-table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Service Name</th>
+                <th>Category</th>
+                <th>Price (KES)</th>
+                <th>Duration</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="services-mgmt-tbody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 5: Barbers Manager -->
+    <div id="tab-barbers-mgr" class="dash-tab-pane">
+      <div class="panel-card">
+        <div class="panel-header">
+          <div>
+            <h3>Barbers & Shift Hours</h3>
+            <p>Configure staff profiles, working shifts, and chair availability.</p>
+          </div>
+          <button type="button" class="btn btn-primary btn-sm" id="btn-add-barber-modal">
+            ➕ Add Barber
+          </button>
+        </div>
+
+        <div class="barbers-mgmt-grid" id="barbers-mgmt-grid">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Earnings & Reports -->
+    <div id="tab-earnings" class="dash-tab-pane">
+      <div class="panel-card" style="margin-bottom: 1.5rem;">
+        <div class="panel-header">
+          <div>
+            <h3>Earnings & Revenue Breakdown</h3>
+            <p>Daily and weekly revenue generated, M-Pesa deposits secured, and barber commissions.</p>
+          </div>
+          <button type="button" class="btn btn-sm btn-secondary" id="btn-export-reports">
+            📥 Export CSV
+          </button>
+        </div>
+
+        <div class="dash-stats-grid" style="margin-bottom: 2rem;">
+          <div class="kpi-card">
+            <div class="kpi-icon kpi-green">💵</div>
+            <div class="kpi-data">
+              <span class="kpi-label">Gross Revenue (Today)</span>
+              <strong class="kpi-val" id="stat-gross-revenue">KES 0</strong>
+              <span class="kpi-sub" id="stat-gross-sub">Completed & Confirmed</span>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon kpi-gold">📱</div>
+            <div class="kpi-data">
+              <span class="kpi-label">M-Pesa Deposits Cleared</span>
+              <strong class="kpi-val" id="stat-deposits-cleared">KES 0</strong>
+              <span class="kpi-sub">Daraja STK push</span>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon kpi-blue">🤝</div>
+            <div class="kpi-data">
+              <span class="kpi-label">Estimated Barber Commission</span>
+              <strong class="kpi-val" id="stat-barber-commission">KES 0</strong>
+              <span class="kpi-sub">Calculated at standard 50% split</span>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon kpi-purple">💈</div>
+            <div class="kpi-data">
+              <span class="kpi-label">Shop Net Retained</span>
+              <strong class="kpi-val" id="stat-shop-net">KES 0</strong>
+              <span class="kpi-sub">After barber payouts</span>
+            </div>
+          </div>
+        </div>
+
+        <h4>Performance by Barber (Today & Weekly)</h4>
+        <div class="earnings-table-container" style="overflow-x: auto; margin-top: 1rem;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Barber</th>
+                <th>Cuts Completed</th>
+                <th>Total Appointments</th>
+                <th>M-Pesa Deposits</th>
+                <th>Gross Generated</th>
+                <th>Barber Share (50%)</th>
+                <th>Shop Share (50%)</th>
+              </tr>
+            </thead>
+            <tbody id="earnings-table-body">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 6: Settings -->
+    <div id="tab-settings" class="dash-tab-pane">
+      <div class="panel-card max-w-700">
+        <div class="panel-header">
+          <div>
+            <h3>Lounge & Payment Settings</h3>
+            <p>Configure M-Pesa deposit policies and operating hours.</p>
+          </div>
+        </div>
+
+        <form id="form-shop-settings" class="settings-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="setting-shop-name">Barbershop Name</label>
+              <input type="text" id="setting-shop-name" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="setting-phone">Contact Phone</label>
+              <input type="tel" id="setting-phone" class="form-input" autocomplete="tel" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="setting-location">Physical Location</label>
+            <input type="text" id="setting-location" class="form-input" autocomplete="street-address" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="setting-open-time">Daily Opening Time</label>
+              <input type="time" id="setting-open-time" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="setting-close-time">Daily Closing Time</label>
+              <input type="time" id="setting-close-time" class="form-input" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="setting-deposit">M-Pesa Deposit Amount (KES)</label>
+              <input type="number" id="setting-deposit" class="form-input" min="100" max="5000" step="50" required>
+              <small class="form-hint">Deducted from the client's final cut price.</small>
+            </div>
+            <div class="form-group">
+              <label for="setting-cancel-hours">Cancellation Window (Hours)</label>
+              <input type="number" id="setting-cancel-hours" class="form-input" min="1" max="24" required>
+              <small class="form-hint">Hours before appointment client can reschedule.</small>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Save Settings</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Dialogs & Modals for Admin Operations -->
+
+  <!-- Add Walk-In Modal -->
+  <dialog id="walkin-dialog" class="modern-dialog">
+    <div class="dialog-header">
+      <h2 class="dialog-title">Add Walk-In Client to Queue</h2>
+      <button type="button" class="btn-close-dialog" id="btn-close-walkin">✕</button>
+    </div>
+    <form id="form-add-walkin" class="dialog-body">
+      <div class="form-group">
+        <label for="walkin-name">Client Name</label>
+        <input type="text" id="walkin-name" class="form-input" placeholder="e.g. James Karanja" required>
+      </div>
+
+      <div class="form-group">
+        <label for="walkin-phone">Phone Number (Optional)</label>
+        <input type="tel" id="walkin-phone" class="form-input" placeholder="07XXXXXXXX" autocomplete="tel">
+      </div>
+
+      <div class="form-group">
+        <label for="walkin-service">Service Requested</label>
+        <select id="walkin-service" class="form-select" required>
+          <!-- Populated dynamically -->
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="walkin-barber">Assign Barber</label>
+        <select id="walkin-barber" class="form-select" required>
+          <option value="any">First Available Chair</option>
+          <!-- Populated dynamically -->
+        </select>
+      </div>
+
+      <div class="dialog-footer no-padding">
+        <button type="button" class="btn btn-secondary" id="btn-cancel-walkin">Cancel</button>
+        <button type="submit" class="btn btn-primary">Add to Queue</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Time-Off / Block Schedule Modal -->
+  <dialog id="timeoff-dialog" class="modern-dialog">
+    <div class="dialog-header">
+      <h2 class="dialog-title">Block Off Barber Time</h2>
+      <button type="button" class="btn-close-dialog" id="btn-close-timeoff">✕</button>
+    </div>
+    <form id="form-add-timeoff" class="dialog-body">
+      <div class="form-group">
+        <label for="to-barber">Select Barber</label>
+        <select id="to-barber" class="form-select" required>
+          <!-- Populated dynamically -->
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="to-date">Date</label>
+        <input type="date" id="to-date" class="form-input" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="to-start">Start Time</label>
+          <input type="time" id="to-start" class="form-input" value="13:00" required>
+        </div>
+        <div class="form-group">
+          <label for="to-end">End Time</label>
+          <input type="time" id="to-end" class="form-input" value="14:00" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="to-reason">Reason</label>
+        <select id="to-reason" class="form-select">
+          <option value="Lunch Break">Lunch Break</option>
+          <option value="Off Day">Full Day Off</option>
+          <option value="Personal Appointment">Personal Appointment</option>
+          <option value="Equipment Maintenance">Equipment Maintenance</option>
+        </select>
+      </div>
+
+      <div class="dialog-footer no-padding">
+        <button type="button" class="btn btn-secondary" id="btn-cancel-timeoff">Cancel</button>
+        <button type="submit" class="btn btn-primary">Block Out Hours</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Service Edit/Add Modal -->
+  <dialog id="service-edit-dialog" class="modern-dialog">
+    <div class="dialog-header">
+      <h2 class="dialog-title" id="srv-modal-title">Add / Edit Service</h2>
+      <button type="button" class="btn-close-dialog" id="btn-close-service-edit">✕</button>
+    </div>
+    <form id="form-service-edit" class="dialog-body">
+      <input type="hidden" id="edit-srv-id">
+      <div class="form-group">
+        <label for="edit-srv-name">Service Name</label>
+        <input type="text" id="edit-srv-name" class="form-input" placeholder="e.g. Royal Beard Sculpt" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="edit-srv-price">Price (KES)</label>
+          <input type="number" id="edit-srv-price" class="form-input" min="100" step="50" required>
+        </div>
+        <div class="form-group">
+          <label for="edit-srv-duration">Duration (Minutes)</label>
+          <input type="number" id="edit-srv-duration" class="form-input" min="15" max="180" step="5" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="edit-srv-category">Category</label>
+        <select id="edit-srv-category" class="form-select">
+          <option value="Haircut">Haircut</option>
+          <option value="Beard">Beard & Shave</option>
+          <option value="Combo">Combo</option>
+          <option value="Color">Color & Treatment</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="edit-srv-desc">Description</label>
+        <textarea id="edit-srv-desc" class="form-textarea" rows="2" placeholder="Details of what is included..."></textarea>
+      </div>
+
+      <div class="form-checkbox-group">
+        <label class="checkbox-label">
+          <input type="checkbox" id="edit-srv-active" checked>
+          <span>Active & visible on public booking page</span>
+        </label>
+      </div>
+
+      <div class="dialog-footer no-padding">
+        <button type="button" class="btn btn-secondary" id="btn-cancel-service-edit">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Service</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Barber Edit/Add Modal -->
+  <dialog id="barber-edit-dialog" class="modern-dialog">
+    <div class="dialog-header">
+      <h2 class="dialog-title" id="barber-modal-title">Add / Edit Barber</h2>
+      <button type="button" class="btn-close-dialog" id="btn-close-barber-edit">✕</button>
+    </div>
+    <form id="form-barber-edit" class="dialog-body">
+      <input type="hidden" id="edit-barber-id">
+      <div class="form-group">
+        <label for="edit-barber-name">Barber Full Name</label>
+        <input type="text" id="edit-barber-name" class="form-input" placeholder="e.g. Samuel Kilonzo" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="edit-barber-nickname">Nickname / Title</label>
+          <input type="text" id="edit-barber-nickname" class="form-input" placeholder="e.g. Master Fade">
+        </div>
+        <div class="form-group">
+          <label for="edit-barber-specialty">Specialty</label>
+          <input type="text" id="edit-barber-specialty" class="form-input" placeholder="e.g. Flat Tops, Beard Sculpt" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="edit-barber-photo">Photo URL</label>
+        <input type="url" id="edit-barber-photo" class="form-input" placeholder="https://..." value="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="edit-barber-start">Shift Start</label>
+          <input type="time" id="edit-barber-start" class="form-input" value="08:30" required>
+        </div>
+        <div class="form-group">
+          <label for="edit-barber-end">Shift End</label>
+          <input type="time" id="edit-barber-end" class="form-input" value="20:00" required>
+        </div>
+      </div>
+
+      <div class="form-checkbox-group">
+        <label class="checkbox-label">
+          <input type="checkbox" id="edit-barber-active" checked>
+          <span>Active & accepting chair bookings</span>
+        </label>
+      </div>
+
+      <div class="dialog-footer no-padding">
+        <button type="button" class="btn btn-secondary" id="btn-cancel-barber-edit">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Barber Profile</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Notification Toast Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

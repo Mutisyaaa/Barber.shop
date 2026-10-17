@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Confirmed | Sam Kitiki Kutz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-dark">
+
+  <!-- Top Announcement Bar -->
+  <aside class="announcement-bar" aria-label="Shop status announcement">
+    <div class="container bar-content">
+      <div class="bar-left">
+        <span class="status-indicator"><span class="pulse-dot"></span> Open Today 8:30 AM – 8:00 PM</span>
+        <span class="bar-divider">•</span>
+        <span class="shop-location-mini">📍 Utawala & Executive Mobile VIP, Nairobi</span>
+      </div>
+      <div class="bar-links">
+        <a href="https://instagram.com/kitikisam_the_barber" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram">
+          <span>📷 @kitikisam_the_barber</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Navigation Header -->
+  <header class="site-header">
+    <div class="container header-content">
+      <a href="index.html" class="brand-logo" aria-label="Sam Kitiki Kutz Homepage">
+        <span class="logo-symbol">⚔️</span>
+        <div class="logo-text">
+          <span class="brand-title">SAM KITIKI KUTZ</span>
+          <span class="brand-sub">CELEBRITY BARBER • NAIROBI</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="barbers.html">Barbers</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Location</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="admin.html" class="btn btn-admin-nav" aria-label="Open Owner and Barber Admin Dashboard">
+          <span>👔 Admin Portal</span>
+          <span class="badge-demo-pill">No Password</span>
+        </a>
+        <a href="booking.html" class="btn btn-primary">
+          <span>Book Chair</span>
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container" style="max-width: 650px;">
+      
+      <div class="confirmation-card" style="padding: 2.25rem;">
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+          <div class="checkmark-circle">✓</div>
+          <span class="dialog-step-tag tag-success" style="font-size: 0.85rem;">🎉 Chair Locked In!</span>
+          <h1 class="dialog-title" style="font-size: 1.85rem; margin-top: 0.5rem;">Booking Confirmed</h1>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.35rem;">
+            Your deposit has been verified via Safaricom M-Pesa. We look forward to welcoming you to the chair.
+          </p>
+        </div>
+
+        <div class="receipt-header">
+          <span class="receipt-logo">⚔️ SAM KITIKI KUTZ</span>
+          <span class="receipt-id" id="conf-booking-id">#APT-CONFIRMED</span>
+        </div>
+
+        <div class="receipt-details">
+          <div class="receipt-row">
+            <span>Client:</span>
+            <strong id="conf-client-name">Dennis Kipchumba</strong>
+          </div>
+          <div class="receipt-row">
+            <span>Service:</span>
+            <strong id="conf-service-name">Flat Top with Mid-Fade</strong>
+          </div>
+          <div class="receipt-row">
+            <span>Master Barber:</span>
+            <strong id="conf-barber-name">Kitiki Sam (@kitikisam_the_barber)</strong>
+          </div>
+          <div class="receipt-row">
+            <span>Date & Time:</span>
+            <strong class="text-gold" id="conf-datetime">Today at 10:15 AM</strong>
+          </div>
+          <div class="receipt-row">
+            <span>M-Pesa Deposit Paid:</span>
+            <span class="status-pill pill-paid" id="conf-deposit-status">KES 300 (PAID)</span>
+          </div>
+          <div class="receipt-row">
+            <span>M-Pesa Ref:</span>
+            <code id="conf-mpesa-ref">SH92LK810</code>
+          </div>
+          <div class="receipt-row">
+            <span>Balance Due at Lounge:</span>
+            <strong id="conf-balance">KES 700</strong>
+          </div>
+        </div>
+
+        <div class="notification-preview-box" style="margin-top: 1.5rem;">
+          <div class="notif-header">
+            <span>📲 Instant Notification Sent</span>
+            <span class="badge-auto">Automated</span>
+          </div>
+          <div class="sms-preview-bubble" id="conf-sms-text">
+            Sam Kitiki Kutz: Habari! Your appointment with Kitiki Sam is confirmed. Deposit KES 300 received (Ref SH92LK810). Location: Utawala, Nairobi. See you in the chair!
+          </div>
+        </div>
+
+        <div class="confirmation-actions" style="margin-top: 2rem;">
+          <a href="https://wa.me/254724590868" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-block" id="btn-conf-whatsapp">
+            <span>💬 Open WhatsApp Confirmation</span>
+          </a>
+          <button type="button" class="btn btn-secondary btn-block" id="btn-conf-calendar">
+            📅 Add to Google Calendar / iCal
+          </button>
+          <a href="index.html" class="btn btn-secondary btn-block" style="text-align: center;">
+            ← Return to Homepage
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <span class="brand-title">SAM KITIKI KUTZ</span>
+        <p>© 2026 Sam Kitiki Kutz (@kitikisam_the_barber). Built for Nairobi's Finest.</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="barbers.html">Barbers</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Directions</a>
+        <a href="admin.html" class="btn-link-subtle">Admin Portal</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

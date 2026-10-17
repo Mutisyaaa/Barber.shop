@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="crestGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f3d77a" />
+      <stop offset="50%" stop-color="#d4af37" />
+      <stop offset="100%" stop-color="#9c7a1f" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#0b0b0b" />
+  <circle cx="32" cy="32" r="28" fill="none" stroke="url(#crestGold)" stroke-width="2" stroke-dasharray="2 2" />
+  <circle cx="32" cy="32" r="25" fill="#151515" stroke="url(#crestGold)" stroke-width="1.5" />
+  <path d="M22 23 C22 20 25 18 29 18 C33 18 35 20 35 22 C35 25 32 26 28 28 C24 30 22 32 22 35 C22 39 25 41 29 41 C34 41 36 38 36 36" fill="none" stroke="url(#crestGold)" stroke-width="2.5" stroke-linecap="round" />
+  <path d="M42 19 L42 41 M42 30 L49 19 M43 30 L50 41" fill="none" stroke="url(#crestGold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

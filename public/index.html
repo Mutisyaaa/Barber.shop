@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sam Kitiki Kutz | Celebrity Barber Lounge & Online Booking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-dark">
+
+  <!-- Top Announcement Bar -->
+  <aside class="announcement-bar" aria-label="Shop status announcement">
+    <div class="container bar-content">
+      <div class="bar-left">
+        <span class="status-indicator"><span class="pulse-dot"></span> Open Today 8:30 AM – 8:00 PM</span>
+        <span class="bar-divider">•</span>
+        <span class="shop-location-mini">📍 Utawala & Executive Mobile VIP, Nairobi</span>
+      </div>
+      <div class="bar-links">
+        <a href="https://instagram.com/kitikisam_the_barber" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram">
+          <span>📷 @kitikisam_the_barber</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Navigation Header -->
+  <header class="site-header">
+    <div class="container header-content">
+      <a href="#home" class="brand-logo" aria-label="Sam Kitiki Kutz Homepage">
+        <span class="logo-symbol">⚔️</span>
+        <div class="logo-text">
+          <span class="brand-title">SAM KITIKI KUTZ</span>
+          <span class="brand-sub">CELEBRITY BARBER • NAIROBI</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <ul class="nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#barbers">Barbers</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#about">Location</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="admin.html" class="btn btn-admin-nav" id="nav-btn-admin" aria-label="Open Owner and Barber Admin Dashboard (No password required)">
+          <span>👔 Admin Portal</span>
+          <span class="badge-demo-pill">No Password</span>
+        </a>
+        <button type="button" class="btn btn-primary" id="btn-start-booking">
+          <span>Book Chair</span>
+          <span class="btn-arrow">→</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CUSTOMER FACING VIEW -->
+  <div id="customer-view" class="view-section active">
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="hero-backdrop"></div>
+      <div class="container hero-content">
+        <div class="hero-badge">
+          <span>⭐ 5.0 Rating • Celebrity Grooming by Kitiki Sam (@kitikisam_the_barber)</span>
+        </div>
+        <h1 class="hero-title">
+          Celebrity Grooming.<br>
+          <span class="text-gold">Book Kitiki Sam Online.</span>
+        </h1>
+        <p class="hero-description">
+          Welcome to Sam Kitiki Kutz. Master cuts, sharp flat tops, precision mid-fades, and royal beard sculpting. Reserve your chair or schedule an executive doorstep cut in 60 seconds with M-Pesa.
+        </p>
+
+        <div class="hero-cta-group">
+          <button type="button" class="btn btn-primary btn-lg" id="hero-book-btn">
+            <span>Book Your Chair Now</span>
+            <span class="btn-arrow">→</span>
+          </button>
+          <a href="#services" class="btn btn-secondary btn-lg">View Services & Prices</a>
+        </div>
+
+        <div class="hero-features-grid">
+          <div class="feature-item">
+            <div class="feature-icon">⏱️</div>
+            <div class="feature-info">
+              <strong>Guaranteed Slots</strong>
+              <span>No 1-hour barbershop queues</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">📱</div>
+            <div class="feature-info">
+              <strong>Instant M-Pesa STK</strong>
+              <span>Smooth KES 300 deposit lock</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">💬</div>
+            <div class="feature-info">
+              <strong>WhatsApp Reminders</strong>
+              <span>Automated calendar updates</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services & Pricing Section -->
+    <section id="services" class="section services-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">CRAFTED FOR DISTINCTION</span>
+          <h2 class="section-title">Services & Transparent Pricing</h2>
+          <p class="section-subtitle">Every service includes complimentary beverage, hot towel finish, and premium organic styling products.</p>
+        </div>
+
+        <div class="category-filters" id="service-filters" role="tablist" aria-label="Filter services by category">
+          <button type="button" class="filter-tab active" data-category="all" role="tab" aria-selected="true">All Services</button>
+          <button type="button" class="filter-tab" data-category="Haircut" role="tab" aria-selected="false">Haircuts</button>
+          <button type="button" class="filter-tab" data-category="Beard" role="tab" aria-selected="false">Beard & Shave</button>
+          <button type="button" class="filter-tab" data-category="Combo" role="tab" aria-selected="false">Executive Combos</button>
+          <button type="button" class="filter-tab" data-category="Color" role="tab" aria-selected="false">Color & Treatment</button>
+        </div>
+
+        <div class="services-grid" id="services-grid">
+          <!-- Dynamically populated by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Barbers Section -->
+    <section id="barbers" class="section barbers-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">THE ARTISANS</span>
+          <h2 class="section-title">Meet Our Master Barbers</h2>
+          <p class="section-subtitle">Pick your dedicated stylist or select 'Any Available' during booking for maximum time flexibility.</p>
+        </div>
+
+        <div class="barbers-grid" id="barbers-grid">
+          <!-- Dynamically populated by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Showcase Section -->
+    <section id="gallery" class="section gallery-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">CELEBRITY PORTFOLIO</span>
+          <h2 class="section-title">The Cut Showcase (@kitikisam_the_barber)</h2>
+          <p class="section-subtitle">Straight from Kitiki Sam's chair — signature flat tops, surgical razor lineups, and royal beard sculpting.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <figure class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=800&q=80" alt="Signature Flat Top with Mid Fade" loading="lazy">
+            <figcaption class="gallery-overlay">
+              <span class="cut-name">Kitiki Sam's Signature Flat Top & Mid-Fade</span>
+              <span class="barber-credit">Crafted by Kitiki Sam</span>
+            </figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=800&q=80" alt="Drop Taper Fade with Surgical Razor Lineup" loading="lazy">
+            <figcaption class="gallery-overlay">
+              <span class="cut-name">Drop Taper Fade & Razor Detailing</span>
+              <span class="barber-credit">Crafted by Kitiki Sam</span>
+            </figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=800&q=80" alt="Royal Beard Sculpt and Hot Towel Steam" loading="lazy">
+            <figcaption class="gallery-overlay">
+              <span class="cut-name">Royal Beard Sculpt & Eucalyptus Steam</span>
+              <span class="barber-credit">Crafted by Kitiki Sam</span>
+            </figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1517832606589-7629c3397143?auto=format&fit=crop&w=800&q=80" alt="High Skin Fade with Textured Afro" loading="lazy">
+            <figcaption class="gallery-overlay">
+              <span class="cut-name">High Skin Fade & Textured Afro Curls</span>
+              <span class="barber-credit">Crafted by Kitiki Sam</span>
+            </figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?auto=format&fit=crop&w=800&q=80" alt="Junior Royal Haircut" loading="lazy">
+            <figcaption class="gallery-overlay">
+              <span class="cut-name">Junior King Sharp Clean Cut</span>
+              <span class="barber-credit">Crafted by Kitiki Sam</span>
+            </figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80" alt="Executive Complete Combo" loading="lazy">
+            <figcaption class="gallery-overlay">
+              <span class="cut-name">Celebrity VIP Complete Executive Combo</span>
+              <span class="barber-credit">Crafted by Kitiki Sam</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location & Hours Section -->
+    <section id="about" class="section about-section">
+      <div class="container">
+        <div class="about-card">
+          <div class="about-details">
+            <span class="section-tag">VISIT OR BOOK HOUSE CALL</span>
+            <h2 class="about-title">Sam Kitiki Kutz Lounge & VIP Mobile</h2>
+            <p class="about-text">
+              Based in Utawala, Nairobi with executive mobile doorstep grooming available across Nairobi (Kilimani, Westlands, Karen, Lavington). High hygiene standards, sterile blades, and organic beard care. Support Sam's craft and book your appointment directly.
+            </p>
+
+            <div class="info-list">
+              <div class="info-item">
+                <span class="info-icon">📍</span>
+                <div>
+                  <strong>Address</strong>
+                  <p id="info-location">Utawala, Nairobi (Executive Doorstep Mobile VIP Available)</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">⏰</span>
+                <div>
+                  <strong>Operating Hours</strong>
+                  <p id="info-hours">Monday – Sunday: 8:30 AM – 8:00 PM</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">📞</span>
+                <div>
+                  <strong>Phone / WhatsApp</strong>
+                  <p id="info-phone">+254 724 590 868</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-cta-panel">
+            <div class="cta-inner">
+              <h3>Ready for Your Fresh Cut?</h3>
+              <p>Reserve your chair ahead of time. Takes less than 1 minute.</p>
+              <button type="button" class="btn btn-primary btn-block" id="footer-book-btn">Book Appointment Now</button>
+              <div class="mpesa-safe-badge">
+                <span>🔒 Safe M-Pesa STK Push Deposit (KES 300)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <div class="footer-brand">
+          <span class="brand-title">SAM KITIKI KUTZ</span>
+          <p>© 2026 Sam Kitiki Kutz (@kitikisam_the_barber). Built for Nairobi's Finest.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#services">Services</a>
+          <a href="#barbers">Barbers</a>
+          <a href="#about">Directions</a>
+          <button type="button" class="btn-link-subtle" id="footer-staff-login">Barber Portal</button>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- OWNER / BARBER DASHBOARD VIEW -->
+  <div id="dashboard-view" class="view-section hidden">
+    <div class="dashboard-shell">
+      
+      <!-- Dashboard Top Header -->
+      <header class="dash-header">
+        <div class="dash-header-left">
+          <button type="button" class="btn-back-to-client" id="btn-back-to-site">
+            ← Back to Customer Website
+          </button>
+          <div class="dash-title-group">
+            <h1 class="dash-title">Owner & Barber Control Center</h1>
+            <span class="dash-date-badge" id="dash-current-date">Today: Oct 16, 2026</span>
+          </div>
+        </div>
+
+        <div class="dash-header-right">
+          <div class="barber-filter-selector">
+            <label for="dash-barber-filter" class="sr-only">Filter by Barber:</label>
+            <select id="dash-barber-filter" class="form-select">
+              <option value="all">👥 All Barbers (Shop View)</option>
+              <!-- Barbers populated dynamically -->
+            </select>
+          </div>
+          <button type="button" class="btn btn-secondary" id="btn-open-timeoff-modal">
+            ⏳ Block Time / Off Day
+          </button>
+          <button type="button" class="btn btn-primary" id="btn-open-walkin-modal">
+            ➕ Add Walk-In Client
+          </button>
+        </div>
+      </header>
+
+      <!-- Demo Info Notice Banner (Client Sales Demo Mode) -->
+      <aside class="demo-info-banner" aria-label="Demo mode status banner">
+        <div class="demo-info-left">
+          <span class="demo-chip">⚡ CLIENT DEMO MODE</span>
+          <span>Open Owner/Barber Access (No password required). Experience schedule timelines, walk-ins, and services live.</span>
+        </div>
+        <div class="demo-info-actions">
+          <button type="button" class="btn btn-sm btn-secondary" id="btn-seed-test-appt">
+            ➕ Add Quick Test Booking
+          </button>
+          <button type="button" class="btn btn-sm btn-secondary" id="btn-demo-back-home">
+            👤 Back to Public Page
+          </button>
+        </div>
+      </aside>
+
+      <!-- Dashboard KPI Summary Cards -->
+      <div class="dash-stats-grid">
+        <div class="kpi-card">
+          <div class="kpi-icon kpi-blue">📅</div>
+          <div class="kpi-data">
+            <span class="kpi-label">Today's Appointments</span>
+            <strong class="kpi-val" id="stat-total-appts">0</strong>
+            <span class="kpi-sub" id="stat-appts-breakdown">0 arrived • 0 done</span>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-icon kpi-gold">💰</div>
+          <div class="kpi-data">
+            <span class="kpi-label">M-Pesa Deposits Collected</span>
+            <strong class="kpi-val" id="stat-deposits-collected">KES 0</strong>
+            <span class="kpi-sub">Secured via Daraja STK</span>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-icon kpi-green">📈</div>
+          <div class="kpi-data">
+            <span class="kpi-label">Projected Daily Revenue</span>
+            <strong class="kpi-val" id="stat-projected-rev">KES 0</strong>
+            <span class="kpi-sub">Completed & booked chairs</span>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-icon kpi-purple">🚶‍♂️</div>
+          <div class="kpi-data">
+            <span class="kpi-label">Walk-In Waiting Queue</span>
+            <strong class="kpi-val" id="stat-walkin-count">0</strong>
+            <span class="kpi-sub" id="stat-walkin-wait">Avg wait: 0 min</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard Navigation Tabs -->
+      <div class="dash-tabs" role="tablist">
+        <button type="button" class="dash-tab active" data-tab="timeline" role="tab" aria-selected="true">
+          🗓️ Today's Schedule & Timeline
+        </button>
+        <button type="button" class="dash-tab" data-tab="walkins" role="tab" aria-selected="false">
+          🚶‍♂️ Walk-In Queue
+        </button>
+        <button type="button" class="dash-tab" data-tab="clients" role="tab" aria-selected="false">
+          👥 Client Directory & History
+        </button>
+        <button type="button" class="dash-tab" data-tab="services-mgr" role="tab" aria-selected="false">
+          ✂️ Services & Pricing Manager
+        </button>
+        <button type="button" class="dash-tab" data-tab="barbers-mgr" role="tab" aria-selected="false">
+          💈 Barbers & Hours Manager
+        </button>
+        <button type="button" class="dash-tab" data-tab="settings" role="tab" aria-selected="false">
+          ⚙️ Shop Settings & M-Pesa
+        </button>
+      </div>
+
+      <!-- Tab 1: Today's Timeline -->
+      <div id="tab-timeline" class="dash-tab-pane active">
+        <div class="timeline-container">
+          <div class="timeline-toolbar">
+            <div class="timeline-legend">
+              <span class="legend-chip chip-confirmed">● Confirmed</span>
+              <span class="legend-chip chip-arrived">● In Chair / Arrived</span>
+              <span class="legend-chip chip-completed">● Completed</span>
+              <span class="legend-chip chip-noshow">● No-Show</span>
+            </div>
+            <div class="timeline-actions">
+              <button type="button" class="btn btn-sm btn-secondary" id="btn-refresh-dashboard">🔄 Refresh</button>
+            </div>
+          </div>
+
+          <div class="schedule-stream" id="schedule-timeline-list">
+            <!-- Timeline items rendered dynamically -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Walk-In Queue -->
+      <div id="tab-walkins" class="dash-tab-pane">
+        <div class="panel-card">
+          <div class="panel-header">
+            <div>
+              <h3>Active Walk-In Queue</h3>
+              <p>Clients waiting in the lounge without prior online reservation.</p>
+            </div>
+            <button type="button" class="btn btn-primary btn-sm" id="btn-add-walkin-shortcut">
+              ➕ Add Walk-In
+            </button>
+          </div>
+
+          <div class="walkins-table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Client</th>
+                  <th>Service</th>
+                  <th>Assigned Barber</th>
+                  <th>Queue Wait</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="walkins-table-body">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Clients Directory -->
+      <div id="tab-clients" class="dash-tab-pane">
+        <div class="panel-card">
+          <div class="panel-header">
+            <div>
+              <h3>Client Records & Retention</h3>
+              <p>Track visits, customer loyalty, and flag repeat no-shows.</p>
+            </div>
+            <input type="search" id="client-search-input" class="search-input" placeholder="Search by name or phone...">
+          </div>
+
+          <div class="clients-table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Client Name</th>
+                  <th>Phone Number</th>
+                  <th>Total Visits</th>
+                  <th>Last Visit</th>
+                  <th>No-Show Strikes</th>
+                  <th>Quick Action</th>
+                </tr>
+              </thead>
+              <tbody id="clients-table-body">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 4: Services Manager -->
+      <div id="tab-services-mgr" class="dash-tab-pane">
+        <div class="panel-card">
+          <div class="panel-header">
+            <div>
+              <h3>Manage Services Menu</h3>
+              <p>Update haircut and grooming prices, durations, and active menu status.</p>
+            </div>
+            <button type="button" class="btn btn-primary btn-sm" id="btn-add-service-modal">
+              ➕ Add New Service
+            </button>
+          </div>
+
+          <div class="services-mgmt-table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Service Name</th>
+                  <th>Category</th>
+                  <th>Price (KES)</th>
+                  <th>Duration</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="services-mgmt-tbody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 5: Barbers Manager -->
+      <div id="tab-barbers-mgr" class="dash-tab-pane">
+        <div class="panel-card">
+          <div class="panel-header">
+            <div>
+              <h3>Barbers & Shift Hours</h3>
+              <p>Configure staff profiles, working shifts, and chair availability.</p>
+            </div>
+            <button type="button" class="btn btn-primary btn-sm" id="btn-add-barber-modal">
+              ➕ Add Barber
+            </button>
+          </div>
+
+          <div class="barbers-mgmt-grid" id="barbers-mgmt-grid">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 6: Settings -->
+      <div id="tab-settings" class="dash-tab-pane">
+        <div class="panel-card max-w-700">
+          <div class="panel-header">
+            <div>
+              <h3>Lounge & Payment Settings</h3>
+              <p>Configure M-Pesa deposit policies and operating hours.</p>
+            </div>
+          </div>
+
+          <form id="form-shop-settings" class="settings-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="setting-shop-name">Barbershop Name</label>
+                <input type="text" id="setting-shop-name" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label for="setting-phone">Contact Phone</label>
+                <input type="tel" id="setting-phone" class="form-input" autocomplete="tel" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="setting-location">Physical Location</label>
+              <input type="text" id="setting-location" class="form-input" autocomplete="street-address" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="setting-open-time">Daily Opening Time</label>
+                <input type="time" id="setting-open-time" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label for="setting-close-time">Daily Closing Time</label>
+                <input type="time" id="setting-close-time" class="form-input" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="setting-deposit">M-Pesa Deposit Amount (KES)</label>
+                <input type="number" id="setting-deposit" class="form-input" min="100" max="5000" step="50" required>
+                <small class="form-hint">Deducted from the client's final cut price.</small>
+              </div>
+              <div class="form-group">
+                <label for="setting-cancel-hours">Cancellation Window (Hours)</label>
+                <input type="number" id="setting-cancel-hours" class="form-input" min="1" max="24" required>
+                <small class="form-hint">Hours before appointment client can reschedule.</small>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Settings</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= MODALS & DIALOGS ================= -->
+
+  <!-- 1. The 4-Step Interactive Booking Dialog -->
+  <dialog id="booking-dialog" class="modern-dialog">
+    <div class="dialog-header">
+      <div class="dialog-title-group">
+        <span class="dialog-step-tag" id="wizard-step-label">Step 1 of 4</span>
+        <h2 class="dialog-title" id="wizard-step-title">Select Your Grooming Service</h2>
+      </div>
+      <button type="button" class="btn-close-dialog" id="btn-close-booking" aria-label="Close booking modal">✕</button>
+    </div>
+
+    <!-- Stepper Indicator -->
+    <div class="stepper-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4">
+      <div class="step-point active" data-step="1"><span>1</span><label>Service</label></div>
+      <div class="step-line"></div>
+      <div class="step-point" data-step="2"><span>2</span><label>Barber</label></div>
+      <div class="step-line"></div>
+      <div class="step-point" data-step="3"><span>3</span><label>Date & Time</label></div>
+      <div class="step-line"></div>
+      <div class="step-point" data-step="4"><span>4</span><label>Deposit</label></div>
+    </div>
+
+    <div class="dialog-body">
+      <!-- Step 1: Select Service -->
+      <div id="step-pane-1" class="wizard-pane active">
+        <p class="pane-instruction">Choose the service you wish to book:</p>
+        <div class="wizard-services-list" id="wizard-services-container">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <!-- Step 2: Select Barber -->
+      <div id="step-pane-2" class="wizard-pane">
+        <p class="pane-instruction">Select your preferred barber or choose Any Available for fastest booking:</p>
+        <div class="wizard-barbers-list" id="wizard-barbers-container">
+          <!-- Any available option + Barbers populated dynamically -->
+        </div>
+      </div>
+
+      <!-- Step 3: Date & Slot Availability Picker -->
+      <div id="step-pane-3" class="wizard-pane">
+        <div class="date-picker-bar">
+          <label for="booking-date-input" class="date-label">Select Date:</label>
+          <input type="date" id="booking-date-input" class="form-input date-input" required>
+        </div>
+
+        <div class="slot-availability-wrapper">
+          <div class="slot-status-header">
+            <span id="slot-count-badge">Available Slots</span>
+            <span class="slot-live-pill"><span class="pulse-dot"></span> Live Slot Engine</span>
+          </div>
+
+          <div class="slots-grid" id="wizard-slots-container">
+            <!-- Slots generated dynamically -->
+          </div>
+          <div id="no-slots-alert" class="alert-empty hidden">
+            No open slots found for this date and duration. Please select another day or choose 'Any Available Barber'.
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4: Contact Details & M-Pesa Deposit Flow -->
+      <div id="step-pane-4" class="wizard-pane">
+        <div class="booking-summary-card">
+          <h4 class="summary-title">Appointment Summary</h4>
+          <div class="summary-row">
+            <span>Service:</span>
+            <strong id="summary-service-name">-</strong>
+          </div>
+          <div class="summary-row">
+            <span>Barber:</span>
+            <strong id="summary-barber-name">-</strong>
+          </div>
+          <div class="summary-row">
+            <span>Date & Time:</span>
+            <strong id="summary-datetime">-</strong>
+          </div>
+          <div class="summary-row">
+            <span>Service Total:</span>
+            <span id="summary-total-price">KES 0</span>
+          </div>
+          <div class="summary-row deposit-row">
+            <span>M-Pesa Deposit (Now):</span>
+            <strong class="text-gold" id="summary-deposit-amount">KES 300</strong>
+          </div>
+          <div class="summary-row sub-row">
+            <span>Balance to pay at lounge:</span>
+            <span id="summary-balance-amount">KES 0</span>
+          </div>
+        </div>
+
+        <form id="form-booking-customer" class="customer-details-form">
+          <div class="form-group">
+            <label for="cust-name">Your Full Name</label>
+            <input type="text" id="cust-name" class="form-input" placeholder="e.g. Dennis Kipchumba" autocomplete="name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="cust-phone">M-Pesa Phone Number (for STK Push prompt)</label>
+            <div class="phone-input-group">
+              <span class="phone-prefix">🇰🇪 +254</span>
+              <input type="tel" id="cust-phone" class="form-input" placeholder="712345678" inputmode="tel" autocomplete="tel-national" required pattern="^[0-9]{9,10}$">
+            </div>
+            <small class="form-hint">You will receive an instant Safaricom M-Pesa PIN prompt on this phone.</small>
+          </div>
+
+          <div class="form-group">
+            <label for="cust-notes">Special Requests / Haircut Notes (Optional)</label>
+            <input type="text" id="cust-notes" class="form-input" placeholder="e.g. Skin fade with razor part, low taper">
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="dialog-footer">
+      <button type="button" class="btn btn-secondary" id="wizard-prev-btn" style="visibility: hidden;">
+        Back
+      </button>
+      <button type="button" class="btn btn-primary" id="wizard-next-btn" disabled>
+        Continue →
+      </button>
+    </div>
+  </dialog>
+
+  <!-- 2. Interactive M-Pesa STK Push Simulation Dialog -->
+  <dialog id="stk-dialog" class="modern-dialog modal-stk">
+    <div class="stk-phone-mockup">
+      <div class="stk-phone-screen">
+        <div class="safaricom-badge">
+          <div class="mpesa-logo-circle">M</div>
+          <span>M-PESA ONLINE STK PUSH</span>
+        </div>
+
+        <div class="stk-prompt-box" id="stk-prompt-box">
+          <p class="stk-merchant-text">Do you want to pay <strong>KES <span id="stk-prompt-amount">300</span></strong> to <strong>THE NOBLE BLADE</strong> (Paybill 892011, Acc: CHAIR DEPOSIT)?</p>
+          <div class="stk-pin-field">
+            <label for="stk-pin-input">Enter M-Pesa PIN:</label>
+            <input type="password" id="stk-pin-input" maxlength="4" placeholder="••••" class="pin-input" value="1234" autocomplete="one-time-code">
+          </div>
+          <div class="stk-actions">
+            <button type="button" class="btn-stk-cancel" id="btn-stk-cancel">Cancel</button>
+            <button type="button" class="btn-stk-send" id="btn-stk-confirm">Send PIN</button>
+          </div>
+        </div>
+
+        <div class="stk-loading-box hidden" id="stk-loading-box">
+          <div class="spinner-gold"></div>
+          <p>Processing Safaricom Daraja STK Push...</p>
+          <span class="stk-countdown" id="stk-timer">Awaiting PIN confirmation (15s)</span>
+        </div>
+
+        <div class="stk-success-box hidden" id="stk-success-box">
+          <div class="checkmark-circle">✓</div>
+          <h4>Deposit Confirmed!</h4>
+          <p class="mpesa-ref-text">Ref: <strong id="stk-receipt-code">SH92LK810</strong></p>
+          <span class="mpesa-sms-snippet">KES 300.00 sent to The Noble Blade. Balance updated.</span>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 3. Confirmation Dialog (WhatsApp & SMS Preview) -->
+  <dialog id="confirmation-dialog" class="modern-dialog modal-confirmation">
+    <div class="dialog-header">
+      <div class="dialog-title-group">
+        <span class="dialog-step-tag tag-success">🎉 Chair Reserved!</span>
+        <h2 class="dialog-title">Booking Confirmed</h2>
+      </div>
+      <button type="button" class="btn-close-dialog" id="btn-close-confirmation" aria-label="Close confirmation modal">✕</button>
+    </div>
+
+    <div class="dialog-body">
+      <div class="confirmation-card">
+        <div class="receipt-header">
+          <span class="receipt-logo">⚔️ THE NOBLE BLADE</span>
+          <span class="receipt-id" id="conf-booking-id">#APT-1092</span>
+        </div>
+
+        <div class="receipt-details">
+          <div class="receipt-row">
+            <span>Client:</span>
+            <strong id="conf-client-name">-</strong>
+          </div>
+          <div class="receipt-row">
+            <span>Service:</span>
+            <strong id="conf-service-name">-</strong>
+          </div>
+          <div class="receipt-row">
+            <span>Master Barber:</span>
+            <strong id="conf-barber-name">-</strong>
+          </div>
+          <div class="receipt-row">
+            <span>Appointment Time:</span>
+            <strong class="text-gold" id="conf-datetime">-</strong>
+          </div>
+          <div class="receipt-row">
+            <span>M-Pesa Deposit Paid:</span>
+            <span class="status-pill pill-paid" id="conf-deposit-status">KES 300 (PAID)</span>
+          </div>
+          <div class="receipt-row">
+            <span>M-Pesa Ref:</span>
+            <code id="conf-mpesa-ref">NL8293710A</code>
+          </div>
+          <div class="receipt-row">
+            <span>Balance at Barber Chair:</span>
+            <strong id="conf-balance">-</strong>
+          </div>
+        </div>
+
+        <!-- Simulated Outgoing SMS & WhatsApp Box -->
+        <div class="notification-preview-box">
+          <div class="notif-header">
+            <span>📲 Instant Notification Sent</span>
+            <span class="badge-auto">Automated</span>
+          </div>
+          <div class="sms-preview-bubble" id="conf-sms-text">
+            The Noble Blade: Appointment confirmed with Marcus on Friday at 10:15 AM. Deposit KES 300 received.
+          </div>
+        </div>
+      </div>
+
+      <div class="confirmation-actions">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-block" id="btn-conf-whatsapp">
+          <span>💬 Open WhatsApp Confirmation</span>
+        </a>
+        <button type="button" class="btn btn-secondary btn-block" id="btn-conf-calendar">
+          📅 Add to Google Calendar / iCal
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 4. Add Walk-In Modal (Staff Dashboard) -->
+  <dialog id="walkin-dialog" class="modern-dialog">
+    <div class="dialog-header">
+      <h2 class="dialog-title">Add Walk-In Client to Queue</h2>
+      <button type="button" class="btn-close-dialog" id="btn-close-walkin">✕</button>
+    </div>
+    <form id="form-add-walkin" class="dialog-body">
+      <div class="form-group">
+        <label for="walkin-name">Client Name</label>
+        <input type="text" id="walkin-name" class="form-input" placeholder="e.g. James Karanja" required>
+      </div>
+
+      <div class="form-group">
+        <label for="walkin-phone">Phone Number (Optional)</label>
+        <input type="tel" id="walkin-phone" class="form-input" placeholder="07XXXXXXXX" autocomplete="tel">
+      </div>
+
+      <div class="form-group">
+        <label for="walkin-service">Service Requested</label>
+        <select id="walkin-service" class="form-select" required>
+          <!-- Populated dynamically -->
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="walkin-barber">Assign Barber</label>
+        <select id="walkin-barber" class="form-select" required>
+          <option value="any">First Available Chair</option>
+          <!-- Populated dynamically -->
+        </select>
+      </div>
+
+      <div class="dialog-footer no-padding">
+        <button type="button" class="btn btn-secondary" id="btn-cancel-walkin">Cancel</button>
+        <button type="submit" class="btn btn-primary">Add to Queue</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- 5. Time-Off / Block Schedule Modal -->
+  <dialog id="timeoff-dialog" class="modern-dialog">
+    <div class="dialog-header">
+      <h2 class="dialog-title">Block Off Barber Time</h2>
+      <button type="button" class="btn-close-dialog" id="btn-close-timeoff">✕</button>
+    </div>
+    <form id="form-add-timeoff" class="dialog-body">
+      <div class="form-group">
+        <label for="to-barber">Select Barber</label>
+        <select id="to-barber" class="form-select" required>
+          <!-- Populated dynamically -->
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="to-date">Date</label>
+        <input type="date" id="to-date" class="form-input" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="to-start">Start Time</label>
+          <input type="time" id="to-start" class="form-input" value="13:00" required>
+        </div>
+        <div class="form-group">
+          <label for="to-end">End Time</label>
+          <input type="time" id="to-end" class="form-input" value="14:00" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="to-reason">Reason</label>
+        <select id="to-reason" class="form-select">
+          <option value="Lunch Break">Lunch Break</option>
+          <option value="Off Day">Full Day Off</option>
+          <option value="Personal Appointment">Personal Appointment</option>
+          <option value="Equipment Maintenance">Equipment Maintenance</option>
+        </select>
+      </div>
+
+      <div class="dialog-footer no-padding">
+        <button type="button" class="btn btn-secondary" id="btn-cancel-timeoff">Cancel</button>
+        <button type="submit" class="btn btn-primary">Block Out Hours</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- 6. Service Edit/Add Modal -->
+  <dialog id="service-edit-dialog" class="modern-dialog">
+    <div class="dialog-header">
+      <h2 class="dialog-title" id="srv-modal-title">Add / Edit Service</h2>
+      <button type="button" class="btn-close-dialog" id="btn-close-service-edit">✕</button>
+    </div>
+    <form id="form-service-edit" class="dialog-body">
+      <input type="hidden" id="edit-srv-id">
+      <div class="form-group">
+        <label for="edit-srv-name">Service Name</label>
+        <input type="text" id="edit-srv-name" class="form-input" placeholder="e.g. Beard Sculpt & Hot Towel" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="edit-srv-price">Price (KES)</label>
+          <input type="number" id="edit-srv-price" class="form-input" min="100" step="50" required>
+        </div>
+        <div class="form-group">
+          <label for="edit-srv-duration">Duration (Minutes)</label>
+          <input type="number" id="edit-srv-duration" class="form-input" min="15" max="180" step="5" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="edit-srv-category">Category</label>
+        <select id="edit-srv-category" class="form-select">
+          <option value="Haircut">Haircut</option>
+          <option value="Beard">Beard & Shave</option>
+          <option value="Combo">Combo</option>
+          <option value="Color">Color & Treatment</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="edit-srv-desc">Description</label>
+        <textarea id="edit-srv-desc" class="form-textarea" rows="2" placeholder="Details of what is included..."></textarea>
+      </div>
+
+      <div class="form-checkbox-group">
+        <label class="checkbox-label">
+          <input type="checkbox" id="edit-srv-active" checked>
+          <span>Active & visible on public booking page</span>
+        </label>
+      </div>
+
+      <div class="dialog-footer no-padding">
+        <button type="button" class="btn btn-secondary" id="btn-cancel-service-edit">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Service</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Floating Demo Quick Switcher (Convenient for Client Sales Presentation) -->
+  <aside class="floating-demo-switcher" aria-label="Demo view switcher">
+    <button type="button" class="demo-switch-tab active" id="float-tab-customer" aria-label="View Public Booking Page">
+      <span>🌐 Customer View</span>
+    </button>
+    <button type="button" class="demo-switch-tab" id="float-tab-admin" aria-label="View Owner Admin Portal">
+      <span>👑 Admin Portal</span>
+    </button>
+  </aside>
+
+  <!-- Notification Toast Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

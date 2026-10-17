@@ -1,0 +1,390 @@
+{
+  "settings": {
+    "shop_name": "SAM KITIKI KUTZ",
+    "tagline": "Celebrity Grooming & Master Barber Lounge by Kitiki Sam",
+    "location": "Utawala & Executive Mobile VIP, Nairobi",
+    "phone": "+254 724 590 868",
+    "whatsapp": "+254724590868",
+    "instagram": "kitikisam_the_barber",
+    "opening_time": "08:30",
+    "closing_time": "20:00",
+    "deposit_amount": 300,
+    "cancellation_window_hours": 2,
+    "slot_step_min": 15,
+    "currency": "KES"
+  },
+  "services": [
+    {
+      "id": "srv_1",
+      "name": "Gentleman's Signature Cut",
+      "category": "Haircut",
+      "price": 800,
+      "duration_min": 30,
+      "description": "Precision clipper & scissor cut finished with razor neck clean up, aftershave balm, and cooling tonic.",
+      "popular": false,
+      "is_active": true
+    },
+    {
+      "id": "srv_2",
+      "name": "Flat Top with Mid-Fade",
+      "category": "Haircut",
+      "price": 1000,
+      "duration_min": 45,
+      "description": "Kitiki Sam's signature master cut — geometric flat top, crisp mid-fade, razor line detailing, and styling.",
+      "popular": true,
+      "is_active": true
+    },
+    {
+      "id": "srv_3",
+      "name": "Low / Drop Taper Fade & Razor Lineup",
+      "category": "Haircut",
+      "price": 1000,
+      "duration_min": 45,
+      "description": "Seamless skin drop fade, surgical hairline shapeup, foil shavers, and premium styling wax.",
+      "popular": true,
+      "is_active": true
+    },
+    {
+      "id": "srv_4",
+      "name": "Royal Beard Sculpt & Hot Towel",
+      "category": "Beard",
+      "price": 600,
+      "duration_min": 30,
+      "description": "Detailed beard shaping, eucalyptus hot towel steam treatment, straight razor edge, and argan oil finish.",
+      "popular": false,
+      "is_active": true
+    },
+    {
+      "id": "srv_5",
+      "name": "Junior / Kids Royal Grooming (Under 12)",
+      "category": "Haircut",
+      "price": 500,
+      "duration_min": 30,
+      "description": "Gentle, patient styling for young kings, fun design elements, and lollipop on the house.",
+      "popular": false,
+      "is_active": true
+    },
+    {
+      "id": "srv_6",
+      "name": "The Celebrity Executive Combo",
+      "category": "Combo",
+      "price": 2000,
+      "duration_min": 60,
+      "description": "Signature fade, beard sculpt, peppermint hot towel facial scrub, rejuvenating scalp wash, and shoulder massage.",
+      "popular": true,
+      "is_active": true
+    },
+    {
+      "id": "srv_7",
+      "name": "Black Tint & Gray Blending",
+      "category": "Color",
+      "price": 1200,
+      "duration_min": 40,
+      "description": "Semi-permanent beard or hair darkening for a youthful, sharp, and high-definition look.",
+      "popular": false,
+      "is_active": true
+    },
+    {
+      "id": "srv_8",
+      "name": "VIP House Call / Executive Doorstep Cut",
+      "category": "Combo",
+      "price": 4500,
+      "duration_min": 75,
+      "description": "Kitiki Sam brings the luxury barbershop experience right to your home, hotel, or office anywhere in Nairobi.",
+      "popular": false,
+      "is_active": true
+    }
+  ],
+  "barbers": [
+    {
+      "id": "barb_1",
+      "name": "Kitiki Sam",
+      "nickname": "Celebrity Barber (@kitikisam_the_barber)",
+      "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+      "specialty": "Flat Tops, Mid Fades & Celebrity Grooming",
+      "rating": 5.0,
+      "review_count": 680,
+      "working_hours": {
+        "start": "08:30",
+        "end": "19:30"
+      },
+      "is_active": true
+    },
+    {
+      "id": "barb_2",
+      "name": "Sammy Otieno",
+      "nickname": "Sharp Edge",
+      "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+      "specialty": "Beard Sculpting & Hot Towel",
+      "rating": 4.9,
+      "review_count": 290,
+      "working_hours": {
+        "start": "09:00",
+        "end": "20:00"
+      },
+      "is_active": true
+    },
+    {
+      "id": "barb_3",
+      "name": "Brian Mwangi",
+      "nickname": "The Stylist",
+      "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80",
+      "specialty": "Textured Crops & Scissor Work",
+      "rating": 4.8,
+      "review_count": 215,
+      "working_hours": {
+        "start": "08:30",
+        "end": "18:30"
+      },
+      "is_active": true
+    },
+    {
+      "id": "barb_4",
+      "name": "Alex Kimani",
+      "nickname": "Speed & Detail",
+      "photo": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=400&q=80",
+      "specialty": "Executive Combos & Kids Cuts",
+      "rating": 4.8,
+      "review_count": 182,
+      "working_hours": {
+        "start": "10:00",
+        "end": "20:00"
+      },
+      "is_active": true
+    }
+  ],
+  "clients": [
+    {
+      "id": "cli_1",
+      "name": "Dennis Kipchumba",
+      "phone": "+254722100200",
+      "visit_count": 8,
+      "last_visit": "2026-10-10",
+      "no_show_count": 0,
+      "preferred_barber_id": "barb_1"
+    },
+    {
+      "id": "cli_2",
+      "name": "Kevin Maina",
+      "phone": "+254733456789",
+      "visit_count": 14,
+      "last_visit": "2026-10-12",
+      "no_show_count": 1,
+      "preferred_barber_id": "barb_2"
+    },
+    {
+      "id": "cli_3",
+      "name": "Evans Omondi",
+      "phone": "+254711889900",
+      "visit_count": 3,
+      "last_visit": "2026-10-14",
+      "no_show_count": 0,
+      "preferred_barber_id": "barb_1"
+    },
+    {
+      "id": "cli_4",
+      "name": "Michael Mutua",
+      "phone": "+254701234567",
+      "visit_count": 1,
+      "last_visit": "2026-10-15",
+      "no_show_count": 0,
+      "preferred_barber_id": "barb_3"
+    },
+    {
+      "id": "cli_1792107979551",
+      "name": "Anthony Kiptoo",
+      "phone": "+254712999888",
+      "visit_count": 1,
+      "last_visit": "2026-10-16",
+      "no_show_count": 0,
+      "preferred_barber_id": "barb_1"
+    }
+  ],
+  "appointments": [
+    {
+      "id": "apt_101",
+      "client_id": "cli_1",
+      "client_name": "Dennis Kipchumba",
+      "client_phone": "+254722100200",
+      "barber_id": "barb_1",
+      "barber_name": "Marcus Vance",
+      "service_id": "srv_2",
+      "service_name": "Skin Fade & Razor Lineup",
+      "service_price": 1000,
+      "date": "2026-10-16",
+      "start_time": "09:30",
+      "end_time": "10:15",
+      "status": "arrived",
+      "deposit_paid": true,
+      "deposit_amount": 300,
+      "mpesa_ref": "QHJ891K20L",
+      "notes": "Low drop fade with natural hairline",
+      "is_walkin": false,
+      "created_at": "2026-10-15T14:20:00Z"
+    },
+    {
+      "id": "apt_102",
+      "client_id": "cli_2",
+      "client_name": "Kevin Maina",
+      "client_phone": "+254733456789",
+      "barber_id": "barb_2",
+      "barber_name": "Sammy Otieno",
+      "service_id": "srv_5",
+      "service_name": "The Executive Combo",
+      "service_price": 1800,
+      "date": "2026-10-16",
+      "start_time": "11:00",
+      "end_time": "12:00",
+      "status": "confirmed",
+      "deposit_paid": true,
+      "deposit_amount": 300,
+      "mpesa_ref": "QLP458M92X",
+      "notes": "Wedding photoshoot tomorrow",
+      "is_walkin": false,
+      "created_at": "2026-10-15T16:10:00Z"
+    },
+    {
+      "id": "apt_103",
+      "client_id": "cli_3",
+      "client_name": "Evans Omondi",
+      "client_phone": "+254711889900",
+      "barber_id": "barb_1",
+      "barber_name": "Marcus Vance",
+      "service_id": "srv_3",
+      "service_name": "Beard Sculpt & Hot Towel",
+      "service_price": 600,
+      "date": "2026-10-16",
+      "start_time": "14:00",
+      "end_time": "14:30",
+      "status": "confirmed",
+      "deposit_paid": true,
+      "deposit_amount": 300,
+      "mpesa_ref": "QRS712J01K",
+      "notes": "",
+      "is_walkin": false,
+      "created_at": "2026-10-15T19:05:00Z"
+    },
+    {
+      "id": "apt_104",
+      "client_id": "cli_4",
+      "client_name": "Michael Mutua",
+      "client_phone": "+254701234567",
+      "barber_id": "barb_3",
+      "barber_name": "Brian Mwangi",
+      "service_id": "srv_1",
+      "service_name": "Classic Barber Cut",
+      "service_price": 800,
+      "date": "2026-10-16",
+      "start_time": "10:30",
+      "end_time": "11:00",
+      "status": "completed",
+      "deposit_paid": true,
+      "deposit_amount": 300,
+      "mpesa_ref": "QTV129P56Z",
+      "notes": "",
+      "is_walkin": false,
+      "created_at": "2026-10-15T09:30:00Z"
+    },
+    {
+      "id": "apt_1792107979551",
+      "client_id": "cli_1792107979551",
+      "client_name": "Anthony Kiptoo",
+      "client_phone": "+254712999888",
+      "barber_id": "barb_1",
+      "barber_name": "Marcus Vance",
+      "service_id": "srv_2",
+      "service_name": "Skin Fade & Razor Lineup",
+      "service_price": 1000,
+      "date": "2026-10-16",
+      "start_time": "15:00",
+      "end_time": "15:45",
+      "status": "confirmed",
+      "deposit_paid": true,
+      "deposit_amount": 300,
+      "mpesa_ref": "QZX9912K8L",
+      "notes": "",
+      "is_walkin": false,
+      "created_at": "2026-10-15T23:46:19.551Z"
+    }
+  ],
+  "walkin_queue": [
+    {
+      "id": "wk_1",
+      "client_name": "James Karanja",
+      "client_phone": "+254720987654",
+      "service_id": "srv_2",
+      "service_name": "Skin Fade & Razor Lineup",
+      "barber_id": "barb_1",
+      "barber_name": "Marcus Vance",
+      "service_duration": 45,
+      "estimated_wait_min": 15,
+      "status": "waiting",
+      "joined_at": "2026-10-16T09:40:00Z"
+    }
+  ],
+  "payments": [
+    {
+      "id": "pay_1",
+      "appointment_id": "apt_101",
+      "mpesa_ref": "QHJ891K20L",
+      "phone": "+254722100200",
+      "amount": 300,
+      "status": "completed",
+      "timestamp": "2026-10-15T14:21:12Z"
+    },
+    {
+      "id": "pay_2",
+      "appointment_id": "apt_102",
+      "mpesa_ref": "QLP458M92X",
+      "phone": "+254733456789",
+      "amount": 300,
+      "status": "completed",
+      "timestamp": "2026-10-15T16:11:05Z"
+    },
+    {
+      "id": "pay_3",
+      "appointment_id": "apt_103",
+      "mpesa_ref": "QRS712J01K",
+      "phone": "+254711889900",
+      "amount": 300,
+      "status": "completed",
+      "timestamp": "2026-10-15T19:06:22Z"
+    },
+    {
+      "id": "pay_4",
+      "appointment_id": "apt_104",
+      "mpesa_ref": "QTV129P56Z",
+      "phone": "+254701234567",
+      "amount": 300,
+      "status": "completed",
+      "timestamp": "2026-10-15T09:31:40Z"
+    },
+    {
+      "id": "pay_1792107979551",
+      "appointment_id": "apt_1792107979551",
+      "mpesa_ref": "QZX9912K8L",
+      "phone": "+254712999888",
+      "amount": 300,
+      "status": "completed",
+      "timestamp": "2026-10-15T23:46:19.551Z"
+    }
+  ],
+  "time_off": [
+    {
+      "id": "to_1",
+      "barber_id": "barb_1",
+      "date": "2026-10-16",
+      "start_time": "13:00",
+      "end_time": "14:00",
+      "reason": "Lunch Break"
+    },
+    {
+      "id": "to_2",
+      "barber_id": "barb_2",
+      "date": "2026-10-16",
+      "start_time": "13:30",
+      "end_time": "14:30",
+      "reason": "Lunch Break"
+    }
+  ]
+}

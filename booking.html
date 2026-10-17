@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Chair | Sam Kitiki Kutz Online Reservation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="public/styles.css">
+</head>
+<body class="theme-dark">
+
+  <!-- Top Announcement Bar -->
+  <aside class="announcement-bar" aria-label="Shop status announcement">
+    <div class="container bar-content">
+      <div class="bar-left">
+        <span class="status-indicator"><span class="pulse-dot"></span> Open Today 8:30 AM – 8:00 PM</span>
+        <span class="bar-divider">•</span>
+        <span class="shop-location-mini">📍 Utawala & Executive Mobile VIP, Nairobi</span>
+      </div>
+      <div class="bar-links">
+        <a href="https://instagram.com/kitikisam_the_barber" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram">
+          <span>📷 @kitikisam_the_barber</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Navigation Header -->
+  <header class="site-header">
+    <div class="container header-content">
+      <a href="index.html" class="brand-logo" aria-label="Sam Kitiki Kutz Homepage">
+        <span class="logo-symbol">⚔️</span>
+        <div class="logo-text">
+          <span class="brand-title">SAM KITIKI KUTZ</span>
+          <span class="brand-sub">CELEBRITY BARBER • NAIROBI</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="barbers.html">Barbers</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Location</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="admin.html" class="btn btn-admin-nav" aria-label="Open Owner and Barber Admin Dashboard">
+          <span>👔 Admin Portal</span>
+          <span class="badge-demo-pill">No Password</span>
+        </a>
+        <a href="index.html" class="btn btn-secondary">
+          <span>← Back Home</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container" style="max-width: 780px;">
+      
+      <!-- Stepper Card Wrapper -->
+      <div class="panel-card" style="padding: 2.25rem 2rem;">
+        <div class="dialog-title-group" style="margin-bottom: 1.5rem; text-align: center;">
+          <span class="dialog-step-tag" id="wizard-step-label">Step 1 of 4</span>
+          <h1 class="dialog-title" id="wizard-step-title" style="font-size: 1.75rem;">Select Your Grooming Service</h1>
+        </div>
+
+        <!-- Stepper Indicator -->
+        <div class="stepper-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" style="border-radius: var(--radius-sm); margin-bottom: 2rem;">
+          <div class="step-point active" data-step="1"><span>1</span><label>Service</label></div>
+          <div class="step-line"></div>
+          <div class="step-point" data-step="2"><span>2</span><label>Barber</label></div>
+          <div class="step-line"></div>
+          <div class="step-point" data-step="3"><span>3</span><label>Date & Time</label></div>
+          <div class="step-line"></div>
+          <div class="step-point" data-step="4"><span>4</span><label>Deposit</label></div>
+        </div>
+
+        <!-- Step 1: Select Service -->
+        <div id="step-pane-1" class="wizard-pane active">
+          <p class="pane-instruction">Choose the service you wish to book:</p>
+          <div class="wizard-services-list" id="wizard-services-container">
+            <!-- Dynamically populated by app.js -->
+          </div>
+        </div>
+
+        <!-- Step 2: Select Barber -->
+        <div id="step-pane-2" class="wizard-pane">
+          <p class="pane-instruction">Select your preferred barber or choose Any Available for fastest booking:</p>
+          <div class="wizard-barbers-list" id="wizard-barbers-container">
+            <!-- Dynamically populated by app.js -->
+          </div>
+        </div>
+
+        <!-- Step 3: Pick Date & Time Slot -->
+        <div id="step-pane-3" class="wizard-pane">
+          <div class="date-picker-bar">
+            <label for="booking-date-input" class="date-label">Select Date:</label>
+            <input type="date" id="booking-date-input" class="form-input date-input" required>
+          </div>
+
+          <div class="slot-availability-wrapper">
+            <div class="slot-status-header">
+              <span id="slot-count-badge">Available Slots</span>
+              <span class="slot-live-pill"><span class="pulse-dot"></span> Live Slot Engine</span>
+            </div>
+
+            <div class="slots-grid" id="wizard-slots-container">
+              <!-- Slots generated dynamically -->
+            </div>
+            <div id="no-slots-alert" class="alert-empty hidden">
+              No open slots found for this date and duration. Please select another day or choose 'Any Available Barber'.
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4: Summary & M-Pesa Customer Form -->
+        <div id="step-pane-4" class="wizard-pane">
+          <div class="booking-summary-card">
+            <h4 class="summary-title">Appointment Summary</h4>
+            <div class="summary-row">
+              <span>Service:</span>
+              <strong id="summary-service-name">-</strong>
+            </div>
+            <div class="summary-row">
+              <span>Barber:</span>
+              <strong id="summary-barber-name">-</strong>
+            </div>
+            <div class="summary-row">
+              <span>Date & Time:</span>
+              <strong id="summary-datetime">-</strong>
+            </div>
+            <div class="summary-row">
+              <span>Service Total:</span>
+              <span id="summary-total-price">KES 0</span>
+            </div>
+            <div class="summary-row deposit-row">
+              <span>M-Pesa Deposit (Now):</span>
+              <strong class="text-gold" id="summary-deposit-amount">KES 300</strong>
+            </div>
+            <div class="summary-row sub-row">
+              <span>Balance to pay at lounge:</span>
+              <span id="summary-balance-amount">KES 0</span>
+            </div>
+          </div>
+
+          <form id="form-booking-customer" class="customer-details-form">
+            <div class="form-group">
+              <label for="cust-name">Your Full Name</label>
+              <input type="text" id="cust-name" class="form-input" placeholder="e.g. Dennis Kipchumba" autocomplete="name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="cust-phone">M-Pesa Phone Number (for STK Push prompt)</label>
+              <div class="phone-input-group">
+                <span class="phone-prefix">🇰🇪 +254</span>
+                <input type="tel" id="cust-phone" class="form-input" placeholder="712345678" inputmode="tel" autocomplete="tel-national" required pattern="^[0-9]{9,10}$">
+              </div>
+              <small class="form-hint">You will receive an instant Safaricom M-Pesa PIN prompt on this phone.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="cust-notes">Special Requests / Haircut Notes (Optional)</label>
+              <input type="text" id="cust-notes" class="form-input" placeholder="e.g. Low drop taper with razor part">
+            </div>
+          </form>
+        </div>
+
+        <!-- Stepper Navigation Controls -->
+        <div class="dialog-footer" style="margin-top: 2rem; border-radius: var(--radius-sm);">
+          <button type="button" class="btn btn-secondary" id="wizard-prev-btn" style="visibility: hidden;">
+            Back
+          </button>
+          <button type="button" class="btn btn-primary" id="wizard-next-btn" disabled>
+            Continue →
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Interactive M-Pesa STK Push Simulation Dialog -->
+  <dialog id="stk-dialog" class="modern-dialog modal-stk">
+    <div class="stk-phone-mockup">
+      <div class="stk-phone-screen">
+        <div class="safaricom-badge">
+          <div class="mpesa-logo-circle">M</div>
+          <span>M-PESA ONLINE STK PUSH</span>
+        </div>
+
+        <div class="stk-prompt-box" id="stk-prompt-box">
+          <p class="stk-merchant-text">Do you want to pay <strong>KES <span id="stk-prompt-amount">300</span></strong> to <strong>SAM KITIKI KUTZ</strong> (Paybill 892011, Acc: CHAIR DEPOSIT)?</p>
+          <div class="stk-pin-field">
+            <label for="stk-pin-input">Enter M-Pesa PIN:</label>
+            <input type="password" id="stk-pin-input" maxlength="4" placeholder="••••" class="pin-input" value="1234" autocomplete="one-time-code">
+          </div>
+          <div class="stk-actions">
+            <button type="button" class="btn-stk-cancel" id="btn-stk-cancel">Cancel</button>
+            <button type="button" class="btn-stk-send" id="btn-stk-confirm">Send PIN</button>
+          </div>
+        </div>
+
+        <div class="stk-loading-box hidden" id="stk-loading-box">
+          <div class="spinner-gold"></div>
+          <p>Processing Safaricom Daraja STK Push...</p>
+          <span class="stk-countdown" id="stk-timer">Awaiting PIN confirmation (15s)</span>
+        </div>
+
+        <div class="stk-success-box hidden" id="stk-success-box">
+          <div class="checkmark-circle">✓</div>
+          <h4>Deposit Confirmed!</h4>
+          <p class="mpesa-ref-text">Ref: <strong id="stk-receipt-code">SH92LK810</strong></p>
+          <span class="mpesa-sms-snippet">KES 300.00 sent to Sam Kitiki Kutz. Balance updated.</span>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Confirmation Dialog (WhatsApp & SMS Preview) -->
+  <dialog id="confirmation-dialog" class="modern-dialog modal-confirmation">
+    <div class="dialog-header">
+      <div class="dialog-title-group">
+        <span class="dialog-step-tag tag-success">🎉 Chair Reserved!</span>
+        <h2 class="dialog-title">Booking Confirmed</h2>
+      </div>
+      <button type="button" class="btn-close-dialog" id="btn-close-confirmation" aria-label="Close confirmation modal">✕</button>
+    </div>
+
+    <div class="dialog-body">
+      <div class="confirmation-card">
+        <div class="receipt-header">
+          <span class="receipt-logo">⚔️ SAM KITIKI KUTZ</span>
+          <span class="receipt-id" id="conf-booking-id">#APT-1092</span>
+        </div>
+
+        <div class="receipt-details">
+          <div class="receipt-row">
+            <span>Client:</span>
+            <strong id="conf-client-name">-</strong>
+          </div>
+          <div class="receipt-row">
+            <span>Service:</span>
+            <strong id="conf-service-name">-</strong>
+          </div>
+          <div class="receipt-row">
+            <span>Master Barber:</span>
+            <strong id="conf-barber-name">-</strong>
+          </div>
+          <div class="receipt-row">
+            <span>Appointment Time:</span>
+            <strong class="text-gold" id="conf-datetime">-</strong>
+          </div>
+          <div class="receipt-row">
+            <span>M-Pesa Deposit Paid:</span>
+            <span class="status-pill pill-paid" id="conf-deposit-status">KES 300 (PAID)</span>
+          </div>
+          <div class="receipt-row">
+            <span>M-Pesa Ref:</span>
+            <code id="conf-mpesa-ref">NL8293710A</code>
+          </div>
+          <div class="receipt-row">
+            <span>Balance at Barber Chair:</span>
+            <strong id="conf-balance">-</strong>
+          </div>
+        </div>
+
+        <div class="notification-preview-box">
+          <div class="notif-header">
+            <span>📲 Instant Notification Sent</span>
+            <span class="badge-auto">Automated</span>
+          </div>
+          <div class="sms-preview-bubble" id="conf-sms-text">
+            Sam Kitiki Kutz: Appointment confirmed on Friday at 10:15 AM. Deposit KES 300 received.
+          </div>
+        </div>
+      </div>
+
+      <div class="confirmation-actions">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-block" id="btn-conf-whatsapp">
+          <span>💬 Open WhatsApp Confirmation</span>
+        </a>
+        <button type="button" class="btn btn-secondary btn-block" id="btn-conf-calendar">
+          📅 Add to Google Calendar / iCal
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Notification Toast Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <script src="public/app.js"></script>
+</body>
+</html>

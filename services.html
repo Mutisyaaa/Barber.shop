@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services & Pricing | Sam Kitiki Kutz (@kitikisam_the_barber)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="public/styles.css">
+</head>
+<body class="theme-dark">
+
+  <!-- Top Announcement Bar -->
+  <aside class="announcement-bar" aria-label="Shop status announcement">
+    <div class="container bar-content">
+      <div class="bar-left">
+        <span class="status-indicator"><span class="pulse-dot"></span> Open Today 8:30 AM – 8:00 PM</span>
+        <span class="bar-divider">•</span>
+        <span class="shop-location-mini">📍 Utawala & Executive Mobile VIP, Nairobi</span>
+      </div>
+      <div class="bar-links">
+        <a href="https://instagram.com/kitikisam_the_barber" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram">
+          <span>📷 @kitikisam_the_barber</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Navigation Header -->
+  <header class="site-header">
+    <div class="container header-content">
+      <a href="index.html" class="brand-logo" aria-label="Sam Kitiki Kutz Homepage">
+        <span class="logo-symbol">⚔️</span>
+        <div class="logo-text">
+          <span class="brand-title">SAM KITIKI KUTZ</span>
+          <span class="brand-sub">CELEBRITY BARBER • NAIROBI</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html" class="active text-gold">Services</a></li>
+          <li><a href="barbers.html">Barbers</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Location</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="admin.html" class="btn btn-admin-nav" aria-label="Open Owner and Barber Admin Dashboard">
+          <span>👔 Admin Portal</span>
+          <span class="badge-demo-pill">No Password</span>
+        </a>
+        <a href="booking.html" class="btn btn-primary" id="btn-start-booking">
+          <span>Book Chair</span>
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Services Header Section -->
+    <section class="section page-header-section text-center">
+      <div class="container">
+        <span class="section-tag">TRANSPARENT PRICING & EXECUTIVE CARE</span>
+        <h1 class="section-title">Grooming Services & Menu</h1>
+        <p class="section-subtitle">
+          Precision haircuts, razor flat tops, beard sculpting, and luxury VIP house calls crafted by Kitiki Sam and the master styling team.
+        </p>
+
+        <!-- Category Filter Tabs -->
+        <div class="category-filters" id="service-filters" role="tablist" aria-label="Filter services by category">
+          <button type="button" class="filter-tab active" data-category="all" role="tab" aria-selected="true">All Services</button>
+          <button type="button" class="filter-tab" data-category="Haircut" role="tab" aria-selected="false">Haircuts</button>
+          <button type="button" class="filter-tab" data-category="Beard" role="tab" aria-selected="false">Beard & Shave</button>
+          <button type="button" class="filter-tab" data-category="Combo" role="tab" aria-selected="false">Executive Combos</button>
+          <button type="button" class="filter-tab" data-category="Color" role="tab" aria-selected="false">Color & Tint</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Grid Section -->
+    <section class="section no-top-padding">
+      <div class="container">
+        <div class="services-grid" id="services-grid">
+          <!-- Dynamically populated or rendered -->
+        </div>
+
+        <!-- Service Inclusions Guarantee -->
+        <div class="about-card" style="margin-top: 4rem;">
+          <div class="about-details">
+            <span class="section-tag">THE KITIKI SAM STANDARD</span>
+            <h2 class="about-title">What Comes with Every Cut</h2>
+            <p class="about-text">
+              We never rush a cut. From sterile blades to warm peppermint towels, every client receives executive attention fit for the stage.
+            </p>
+            <div class="info-list">
+              <div class="info-item">
+                <span class="info-icon">🌿</span>
+                <div>
+                  <strong>Organic Styling Oils</strong>
+                  <p>Argan, tea tree, and cooling aloe vera beard tonics.</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">🧼</span>
+                <div>
+                  <strong>Surgical Hygiene</strong>
+                  <p>Fresh single-use razor blades and UV sterilizer for all clippers.</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">☕</span>
+                <div>
+                  <strong>Complimentary Lounge Refreshment</strong>
+                  <p>Complimentary espresso, cold spring water, or soda while you relax.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-cta-panel">
+            <div class="cta-inner">
+              <h3>Lock In Your Slot</h3>
+              <p>Skip the barbershop line. Secure your chair in 60 seconds with M-Pesa.</p>
+              <a href="booking.html" class="btn btn-primary btn-block">Book Your Appointment Now</a>
+              <div class="mpesa-safe-badge">
+                <span>🔒 M-Pesa STK Deposit: KES 300 (Deducted from cut)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <span class="brand-title">SAM KITIKI KUTZ</span>
+        <p>© 2026 Sam Kitiki Kutz (@kitikisam_the_barber). Built for Nairobi's Finest.</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="barbers.html">Barbers</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Directions</a>
+        <a href="admin.html" class="btn-link-subtle">Admin Portal</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Demo Quick Switcher -->
+  <aside class="floating-demo-switcher" aria-label="Demo view switcher">
+    <a href="index.html" class="demo-switch-tab active" aria-label="View Public Booking Page">
+      <span>🌐 Customer View</span>
+    </a>
+    <a href="admin.html" class="demo-switch-tab" aria-label="View Owner Admin Portal">
+      <span>👑 Admin Portal</span>
+    </a>
+  </aside>
+
+  <script src="public/app.js"></script>
+</body>
+</html>
