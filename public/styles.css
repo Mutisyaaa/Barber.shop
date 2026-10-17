@@ -82,10 +82,7 @@ body.theme-dark {
 
 /* Announcement Top Bar */
 .announcement-bar {
-  background: #0d1016;
-  border-bottom: 1px solid var(--border-subtle);
-  font-size: 0.8rem;
-  padding: 0.45rem 0;
+  display: none !important;
 }
 
 .bar-content {
