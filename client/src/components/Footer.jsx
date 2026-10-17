@@ -64,7 +64,7 @@ export default function Footer() {
                   onClick={() => { setCurrentView("admin"); window.scrollTo({ top: 0, behavior: "smooth" }); }}
                   className="text-xs text-[#d4af37] hover:underline cursor-pointer"
                 >
-                  Admin Portal (Demo)
+                  Admin Portal
                 </button>
               </li>
             </ul>

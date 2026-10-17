@@ -13,7 +13,8 @@ import {
   RotateCcw, 
   MessageCircle, 
   X,
-  ExternalLink
+  ExternalLink,
+  ShieldCheck
 } from 'lucide-react';
 
 export default function App() {
@@ -79,31 +80,52 @@ export default function App() {
           <span className="text-[#888] hidden sm:inline">Toggle views to experience mobile Instagram flow</span>
         </div>
 
-        {/* View Switcher Controls */}
-        <div className="flex items-center gap-2 bg-[#0a0a0a] p-1 rounded-xl border border-[#2a2a2a]">
+        {/* View Switcher & Admin Controls */}
+        <div className="flex items-center gap-2">
           <button
-            onClick={() => setDeviceMode('responsive')}
-            className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-xs font-semibold transition cursor-pointer ${
-              deviceMode === 'responsive'
-                ? "bg-[#d4af37] text-black shadow-sm"
-                : "text-[#888] hover:text-white"
+            onClick={() => {
+              if (currentView === 'admin') {
+                setCurrentView('home');
+              } else {
+                setCurrentView('admin');
+              }
+            }}
+            className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-xs font-semibold border transition cursor-pointer ${
+              currentView === 'admin'
+                ? "bg-[#d4af37] text-black border-[#d4af37] shadow-sm font-bold"
+                : "bg-[#151515] border-[#d4af37]/40 text-[#f5efe0] hover:text-[#d4af37] hover:border-[#d4af37]"
             }`}
+            title="Toggle Admin Portal"
           >
-            <Monitor size={14} />
-            <span className="hidden sm:inline">Desktop / Full</span>
+            <ShieldCheck size={14} className={currentView === 'admin' ? 'text-black' : 'text-[#d4af37]'} />
+            <span>{currentView === 'admin' ? 'Exit Admin' : 'Admin Portal'}</span>
           </button>
 
-          <button
-            onClick={() => setDeviceMode('mobile')}
-            className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-xs font-semibold transition cursor-pointer ${
-              deviceMode === 'mobile'
-                ? "bg-[#d4af37] text-black shadow-sm"
-                : "text-[#888] hover:text-white"
-            }`}
-          >
-            <Smartphone size={14} />
-            <span>Mobile Device (375px)</span>
-          </button>
+          <div className="flex items-center gap-1 bg-[#0a0a0a] p-1 rounded-xl border border-[#2a2a2a]">
+            <button
+              onClick={() => setDeviceMode('responsive')}
+              className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-xs font-semibold transition cursor-pointer ${
+                deviceMode === 'responsive'
+                  ? "bg-[#d4af37] text-black shadow-sm"
+                  : "text-[#888] hover:text-white"
+              }`}
+            >
+              <Monitor size={14} />
+              <span className="hidden sm:inline">Desktop / Full</span>
+            </button>
+
+            <button
+              onClick={() => setDeviceMode('mobile')}
+              className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-xs font-semibold transition cursor-pointer ${
+                deviceMode === 'mobile'
+                  ? "bg-[#d4af37] text-black shadow-sm"
+                  : "text-[#888] hover:text-white"
+              }`}
+            >
+              <Smartphone size={14} />
+              <span>Mobile Device (375px)</span>
+            </button>
+          </div>
         </div>
       </div>
 

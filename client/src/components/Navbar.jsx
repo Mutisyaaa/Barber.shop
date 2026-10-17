@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useApp } from "../context/AppContext";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShieldCheck } from "lucide-react";
 import { CrestLogo } from "./CrestLogo";
 
 export default function Navbar() {
@@ -77,13 +77,15 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* RIGHT (Desktop): Gold "Book now" button + Admin demo pill */}
-          <div className="hidden md:flex items-center gap-4">
+          {/* RIGHT (Desktop): Admin button + Gold "Book now" button */}
+          <div className="hidden md:flex items-center gap-3">
             <button
               onClick={() => handleNav("admin")}
-              className="text-xs text-[#a8a29e] hover:text-[#d4af37] px-2 py-1 rounded border border-[#262626] cursor-pointer"
+              className="h-11 px-4 rounded-xl bg-[#151515] hover:bg-[#1e1e1e] border border-[#d4af37]/40 hover:border-[#d4af37] text-xs font-semibold text-[#f5efe0] hover:text-[#d4af37] flex items-center gap-1.5 transition active:scale-95 cursor-pointer shadow-sm"
+              title="Open Admin Portal"
             >
-              Admin
+              <ShieldCheck size={16} className="text-[#d4af37]" />
+              <span>Admin</span>
             </button>
             <button
               onClick={() => handleNav("booking")}
@@ -93,13 +95,14 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Mobile Right: Hamburger */}
+          {/* Mobile Right: Admin button + Hamburger */}
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={() => handleNav("admin")}
-              className="text-[10px] text-[#d4af37] font-semibold px-2 py-1 rounded border border-[#d4af37]/30"
+              className="h-9 px-3 rounded-lg bg-[#151515] border border-[#d4af37]/50 text-xs font-semibold text-[#d4af37] flex items-center gap-1 active:scale-95 transition cursor-pointer"
             >
-              Admin
+              <ShieldCheck size={14} className="text-[#d4af37]" />
+              <span>Admin</span>
             </button>
             <button
               onClick={() => setMobileMenuOpen(true)}
@@ -131,7 +134,7 @@ export default function Navbar() {
           </div>
 
           {/* Stacked Links in the centre */}
-          <div className="flex flex-col items-center justify-center gap-6 my-auto text-center">
+          <div className="flex flex-col items-center justify-center gap-5 my-auto text-center w-full max-w-xs mx-auto">
             {navLinks.map((link) => (
               <button
                 key={link.id}
@@ -141,14 +144,25 @@ export default function Navbar() {
                 {link.label}
               </button>
             ))}
-            <button
-              onClick={() => {
-                handleNav("manage");
-              }}
-              className="text-xs uppercase tracking-widest text-[#a8a29e] hover:text-[#d4af37] mt-4"
-            >
-              Lookup Booking
-            </button>
+            <div className="pt-4 w-full flex flex-col gap-3">
+              <button
+                onClick={() => {
+                  handleNav("manage");
+                }}
+                className="text-xs uppercase tracking-widest text-[#a8a29e] hover:text-[#d4af37] py-2 cursor-pointer"
+              >
+                Lookup Existing Booking
+              </button>
+              <button
+                onClick={() => {
+                  handleNav("admin");
+                }}
+                className="w-full h-11 rounded-xl bg-[#151515] border border-[#d4af37]/40 text-[#f5efe0] hover:text-[#d4af37] font-semibold text-sm flex items-center justify-center gap-2 transition cursor-pointer active:scale-95"
+              >
+                <ShieldCheck size={16} className="text-[#d4af37]" />
+                <span>Admin Portal</span>
+              </button>
+            </div>
           </div>
 
           {/* Bottom full-width "Book now" button */}

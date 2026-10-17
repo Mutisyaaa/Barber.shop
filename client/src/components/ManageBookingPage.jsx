@@ -164,7 +164,7 @@ export default function ManageBookingPage() {
                 onClick={handleDemoFill}
                 className="w-full py-2 text-xs text-[#888] hover:text-[#d4af37] cursor-pointer"
               >
-                Auto-fill demo reference
+                Try sample code (SK-8842)
               </button>
             </form>
           </div>

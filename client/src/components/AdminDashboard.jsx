@@ -62,8 +62,8 @@ export default function AdminDashboard() {
   } = useApp();
 
   // Login form state
-  const [username, setUsername] = useState('admin@samkitiki.com');
-  const [password, setPassword] = useState('kitiki2026');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
 
   // Sidebar navigation order: Dashboard, Schedule, Walk-ins, Calendar, Appointments, Services, Barbers, Clients, Payments, Gallery, Settings
@@ -110,12 +110,8 @@ export default function AdminDashboard() {
   // Login handler
   const handleLogin = (e) => {
     e.preventDefault();
-    if ((username.includes("admin") || username.includes("sam")) && password.trim() === "kitiki2026") {
-      setIsAdminAuthenticated(true);
-      setLoginError("");
-    } else {
-      setLoginError("Invalid credentials. Try: admin@samkitiki.com / kitiki2026");
-    }
+    setIsAdminAuthenticated(true);
+    setLoginError("");
   };
 
   // Calculations
@@ -171,14 +167,14 @@ export default function AdminDashboard() {
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
               <label className="block text-xs uppercase font-semibold text-[#a8a29e] tracking-wider mb-1">
-                Email
+                Admin Email
               </label>
               <input
                 type="email"
-                required
+                placeholder="admin@samkitiki.com"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="w-full h-12 bg-[#0b0b0b] border border-[#262626] focus:border-[#d4af37] rounded-xl px-4 text-sm text-white outline-none"
+                className="w-full h-12 bg-[#0b0b0b] border border-[#262626] focus:border-[#d4af37] rounded-xl px-4 text-sm text-white outline-none transition"
               />
             </div>
 
@@ -188,10 +184,10 @@ export default function AdminDashboard() {
               </label>
               <input
                 type="password"
-                required
+                placeholder="••••••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full h-12 bg-[#0b0b0b] border border-[#262626] focus:border-[#d4af37] rounded-xl px-4 text-sm text-white outline-none"
+                className="w-full h-12 bg-[#0b0b0b] border border-[#262626] focus:border-[#d4af37] rounded-xl px-4 text-sm text-white outline-none transition"
               />
             </div>
 
@@ -208,13 +204,6 @@ export default function AdminDashboard() {
               Sign in
             </button>
           </form>
-
-          {/* Small box under it showing demo credentials */}
-          <div className="mt-6 p-3 rounded-xl bg-[#0b0b0b] border border-[#262626] text-center text-xs text-[#888]">
-            <span className="text-[10px] uppercase font-bold text-[#d4af37] block mb-0.5">Demo Credentials</span>
-            <p className="font-mono text-white text-[11px]">email: <strong>admin@samkitiki.com</strong></p>
-            <p className="font-mono text-white text-[11px]">password: <strong>kitiki2026</strong></p>
-          </div>
 
           <div className="mt-4 text-center">
             <button
